@@ -7,7 +7,7 @@ import { Integrations } from "@/components/landing/Integrations";
 import { Exclusive } from "@/components/landing/Exclusive";
 import { FinalCta, Footer } from "@/components/landing/FinalCta";
 
-const TITLE = "FlevoPay — Gateway de pagamentos sem atrito";
+const TITLE = "VerioxPay — Gateway de pagamentos sem atrito";
 const DESCRIPTION =
   "Gateway de pagamentos com SmartRoute, multiadquirência inteligente e saque instantâneo. Pix, cartão e boleto vendendo 24 horas por dia.";
 
