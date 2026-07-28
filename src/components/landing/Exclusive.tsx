@@ -16,7 +16,7 @@ export function Exclusive() {
           </p>
           <img
             src={apiReference}
-            alt="Referência da API FlevoPay com endpoints PIX IN e PIX OUT"
+            alt="Referência da API VerioxPay com endpoints PIX IN e PIX OUT"
             width={1280}
             height={912}
             loading="lazy"

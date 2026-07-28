@@ -10,7 +10,7 @@ export function FinalCta() {
           <ArrowUpRight className="inline size-12 text-primary sm:size-16" aria-hidden="true" />
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-base text-muted-foreground">
-          Chame seu gerente de contas exclusivo e comece a vender com a FlevoPay hoje mesmo.
+          Chame seu gerente de contas exclusivo e comece a vender com a VerioxPay hoje mesmo.
         </p>
         <a
           href="#criar-conta"
@@ -50,7 +50,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} FlevoPay. Todos os direitos reservados.
+        © {new Date().getFullYear()} VerioxPay. Todos os direitos reservados.
       </div>
     </footer>
   );

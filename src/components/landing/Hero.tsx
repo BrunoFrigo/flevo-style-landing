@@ -89,7 +89,7 @@ export function Hero() {
           <div className="float-slow relative">
             <img
               src={heroPhone}
-              alt="Mockup do app FlevoPay com dashboard de faturamento"
+              alt="Mockup do app VerioxPay com dashboard de faturamento"
               width={1024}
               height={1408}
               className="mx-auto w-[78%] rotate-6 drop-shadow-2xl"

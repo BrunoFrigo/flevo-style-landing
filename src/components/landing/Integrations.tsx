@@ -14,7 +14,7 @@ function PlatformCard({ name }: { name: string }) {
       </span>
       <p className="mt-5 text-2xl font-extrabold tracking-tight text-foreground">{name}</p>
       <div className="mt-6 flex items-center justify-between rounded-full bg-muted px-4 py-2">
-        <span className="font-mono text-xs text-muted-foreground">api.flevopay.com/v1</span>
+        <span className="font-mono text-xs text-muted-foreground">api.verioxpay.com/v1</span>
         <span className="flex items-center gap-1.5 text-xs font-bold text-success">
           <span className="size-1.5 rounded-full bg-success" aria-hidden="true" />
           ativo
@@ -37,7 +37,7 @@ export function Integrations() {
           Plugue nos melhores checkouts do mercado.
         </h2>
         <p className="mt-5 max-w-2xl text-base text-muted-foreground">
-          A FlevoPay nasceu para conversar com o ecossistema. Conecte em minutos as plataformas que
+          A VerioxPay nasceu para conversar com o ecossistema. Conecte em minutos as plataformas que
           já dominam o checkout no Brasil — sem código, sem fricção, sem perder venda.
         </p>
       </div>

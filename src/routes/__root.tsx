@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FlevoPay — Gateway de pagamentos" },
+      { title: "VerioxPay — Gateway de pagamentos" },
       {
         name: "description",
         content:
           "Gateway de pagamentos que maximiza conversão, reduz falhas e mantém sua operação vendendo 24 horas por dia.",
       },
-      { property: "og:site_name", content: "FlevoPay" },
+      { property: "og:site_name", content: "VerioxPay" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -39,7 +39,7 @@ export function SmartRoute() {
         <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:items-end">
           <h2 className="max-w-xl text-4xl font-extrabold leading-[1.05] tracking-tighter text-foreground sm:text-5xl">
             Recupere até <span className="text-gradient-brand">14% em vendas</span> com o SmartRoute
-            da Flevo.
+            da Veriox.
           </h2>
           <p className="max-w-xl text-base text-muted-foreground">
             O SmartRoute orquestra múltiplos adquirentes em tempo real. Se uma transação falhar em
