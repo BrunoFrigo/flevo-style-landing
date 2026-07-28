@@ -69,27 +69,34 @@
 
 :root {
   --radius: 1.25rem;
-  --background: oklch(0.985 0.005 70);
-  --foreground: oklch(0.16 0.015 55);
+  --background: oklch(0.988 0.004 75);
+  --foreground: oklch(0.145 0.014 55);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.015 55);
+  --card-foreground: oklch(0.145 0.014 55);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.015 55);
+  --popover-foreground: oklch(0.145 0.014 55);
   --primary: oklch(0.655 0.215 42);
   --primary-foreground: oklch(0.99 0.005 70);
-  --primary-glow: oklch(0.75 0.18 62);
-  --secondary: oklch(0.965 0.012 70);
+  --primary-glow: oklch(0.78 0.165 68);
+  --secondary: oklch(0.968 0.01 70);
   --secondary-foreground: oklch(0.2 0.025 55);
-  --muted: oklch(0.965 0.01 70);
-  --muted-foreground: oklch(0.52 0.022 55);
-  --accent: oklch(0.955 0.035 65);
+  --muted: oklch(0.968 0.008 70);
+  --muted-foreground: oklch(0.505 0.02 55);
+  --accent: oklch(0.958 0.032 65);
   --accent-foreground: oklch(0.48 0.18 42);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --success: oklch(0.62 0.16 155);
-  --border: oklch(0.925 0.014 70);
-  --input: oklch(0.925 0.014 70);
+  --border: oklch(0.932 0.01 70);
+  --input: oklch(0.932 0.01 70);
   --ring: oklch(0.655 0.215 42);
+
+  /* Premium surfaces */
+  --ink: oklch(0.16 0.018 50);
+  --ink-soft: oklch(0.235 0.02 50);
+  --ink-foreground: oklch(0.97 0.008 75);
+  --ink-muted: oklch(0.74 0.015 70);
+  --hairline: color-mix(in oklab, var(--foreground) 8%, transparent);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -106,9 +113,19 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 
   --gradient-brand: linear-gradient(100deg, var(--primary), var(--primary-glow));
-  --shadow-brand: 0 22px 55px -22px color-mix(in oklab, var(--primary) 55%, transparent);
-  --shadow-soft: 0 18px 45px -25px color-mix(in oklab, var(--foreground) 30%, transparent);
+  --shadow-brand:
+    0 1px 0 0 color-mix(in oklab, white 30%, transparent) inset,
+    0 10px 24px -12px color-mix(in oklab, var(--primary) 60%, transparent),
+    0 28px 60px -28px color-mix(in oklab, var(--primary) 55%, transparent);
+  --shadow-soft:
+    0 1px 2px -1px color-mix(in oklab, var(--foreground) 12%, transparent),
+    0 12px 28px -18px color-mix(in oklab, var(--foreground) 22%, transparent);
+  --shadow-elevated:
+    0 1px 2px -1px color-mix(in oklab, var(--foreground) 14%, transparent),
+    0 18px 40px -22px color-mix(in oklab, var(--foreground) 28%, transparent),
+    0 48px 90px -50px color-mix(in oklab, var(--foreground) 40%, transparent);
 }
+
 
 
 .dark {
