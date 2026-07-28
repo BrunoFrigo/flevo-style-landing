@@ -184,7 +184,7 @@
 }
 
 @utility marquee-track {
-  animation: marquee 42s linear infinite;
+  animation: marquee 28s linear infinite;
   width: max-content;
 }
 
