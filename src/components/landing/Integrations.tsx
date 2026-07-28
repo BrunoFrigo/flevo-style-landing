@@ -45,13 +45,16 @@ export function Integrations() {
         </p>
       </div>
 
-      <div className="relative mt-14 overflow-hidden py-2">
-        <div className="marquee-track flex gap-5 px-5">
+      <div className="relative mt-14 overflow-hidden py-6">
+        <div className="marquee-track flex w-max gap-5 pl-5">
           {loop.map((name, i) => (
-            <PlatformCard key={`${name}-${i}`} name={name} />
+            <PlatformCard key={`${name}-${i}`} name={name} index={i} />
           ))}
         </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-card to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-card to-transparent" />
       </div>
+
 
       <div className="mx-auto grid w-full max-w-7xl gap-5 px-5 pb-20 pt-14 md:grid-cols-3 lg:px-8 lg:pb-28">
         {STATS.map((s) => (
