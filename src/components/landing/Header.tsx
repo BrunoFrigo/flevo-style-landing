@@ -13,7 +13,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-hairline bg-background/70 backdrop-blur-xl backdrop-saturate-150">
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 lg:px-8">
         <a href="#top" aria-label="VerioxPay — início">
           <Logo />
@@ -37,13 +37,13 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href="#entrar"
-            className="hidden rounded-full border border-border bg-card px-6 py-3 text-sm font-bold text-foreground shadow-soft transition-colors hover:bg-accent sm:inline-flex"
+            className="hidden rounded-full border border-hairline bg-card px-6 py-3 text-sm font-bold text-foreground shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:shadow-elevated sm:inline-flex"
           >
             Entrar
           </a>
           <a
             href="#criar-conta"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-bold text-primary-foreground shadow-brand transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-bold text-primary-foreground shadow-brand transition-transform duration-500 hover:-translate-y-0.5"
           >
             Comece agora <ArrowRight className="size-4" aria-hidden="true" />
           </a>
