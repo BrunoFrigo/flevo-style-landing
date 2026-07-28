@@ -3,17 +3,16 @@ import apiReference from "@/assets/api-reference.png";
 export function Exclusive() {
   return (
     <section id="exclusivo" className="scroll-mt-24">
-      <div className="mx-auto w-full max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <article className="rounded-[2.5rem] border border-border bg-card p-8 shadow-soft lg:p-14">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
-            01 · Exclusividade iminente
-          </span>
+      <div className="mx-auto w-full max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+        <article className="premium-card hairline-top overflow-hidden rounded-[2.5rem] p-8 lg:p-14">
+          <span className="eyebrow text-primary">01 · Exclusividade iminente</span>
           <h2 className="mt-5 text-4xl font-extrabold tracking-tighter text-foreground sm:text-5xl">
             API Global Inteligente.
           </h2>
-          <p className="mt-4 max-w-xl text-base text-muted-foreground">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
             Construído para suportar volumes massivos sem sequer arranhar a performance.
           </p>
+
           <img
             src={apiReference}
             alt="Referência da API VerioxPay com endpoints PIX IN e PIX OUT"
