@@ -67,7 +67,6 @@ export function Exclusive() {
               </div>
             </article>
 
-            </article>
           ))}
         </div>
       </div>
