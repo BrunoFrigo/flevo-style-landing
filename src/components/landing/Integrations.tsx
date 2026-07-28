@@ -6,9 +6,12 @@ const STATS = [
   { label: "Compatibilidade", value: "100%", text: "PIX, recorrência e order bumps nativos." },
 ];
 
-function PlatformCard({ name }: { name: string }) {
+function PlatformCard({ name, index }: { name: string; index: number }) {
   return (
-    <div className="w-64 shrink-0 rounded-[1.75rem] border border-border bg-card p-6 shadow-soft">
+    <div
+      className="float-slow w-64 shrink-0 rounded-[1.75rem] border border-border bg-card p-6 shadow-soft"
+      style={{ animationDelay: `${(index % 5) * 0.6}s` }}
+    >
       <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
         Checkout integrado
       </span>
