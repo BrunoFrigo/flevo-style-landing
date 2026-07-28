@@ -23,6 +23,9 @@ export function Exclusive() {
           />
         </article>
 
+        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+
+
         <div className="mt-5 grid gap-5 lg:grid-cols-3">
           {[
             {
