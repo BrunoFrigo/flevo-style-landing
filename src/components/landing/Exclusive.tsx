@@ -50,25 +50,23 @@ export function Exclusive() {
           ].map((item) => (
             <article
               key={item.tag}
-              className="flex flex-col justify-between rounded-[2rem] border border-border bg-card p-8 shadow-soft"
+              className="premium-card hairline-top flex flex-col justify-between overflow-hidden rounded-[2rem] p-9"
             >
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                  {item.tag}
-                </span>
+                <span className="eyebrow text-primary">{item.tag}</span>
                 <h3 className="mt-4 text-3xl font-extrabold tracking-tighter text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
               </div>
-              <div className="mt-10 rounded-2xl bg-muted px-5 py-4">
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-                  {item.statLabel}
-                </p>
+              <div className="mt-10 rounded-2xl border border-hairline bg-muted/60 px-5 py-4">
+                <p className="eyebrow text-muted-foreground">{item.statLabel}</p>
                 <p className="mt-1 text-3xl font-extrabold tracking-tighter text-gradient-brand">
                   {item.stat}
                 </p>
               </div>
+            </article>
+
             </article>
           ))}
         </div>
