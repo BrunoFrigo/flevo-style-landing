@@ -35,14 +35,18 @@ function FloatCard({
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
+    <section id="top" className="grain relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 right-0 size-[46rem] rounded-full bg-accent/70 blur-3xl"
+        className="bloom pointer-events-none absolute inset-0"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-48 right-0 size-[48rem] rounded-full bg-accent/60 blur-3xl"
       />
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
         <div className="reveal-up">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-card/80 px-4 py-2 text-xs font-medium text-muted-foreground shadow-soft backdrop-blur-md">
             <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
             Plataforma de pagamentos para negócios digitais
           </span>
@@ -60,13 +64,13 @@ export function Hero() {
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
               href="#criar-conta"
-              className="inline-flex items-center justify-between gap-6 rounded-full bg-gradient-brand px-8 py-5 text-base font-bold text-primary-foreground shadow-brand transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-between gap-6 rounded-full bg-gradient-brand px-8 py-5 text-base font-bold text-primary-foreground shadow-brand transition-transform duration-500 hover:-translate-y-1"
             >
               Criar conta grátis <ArrowRight className="size-5" aria-hidden="true" />
             </a>
             <a
               href="#smartroute"
-              className="inline-flex items-center gap-4 rounded-full border border-border bg-card px-8 py-5 text-base font-bold text-foreground shadow-soft transition-colors hover:bg-accent"
+              className="inline-flex items-center gap-4 rounded-full border border-hairline bg-card px-8 py-5 text-base font-bold text-foreground shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-elevated"
             >
               <span className="grid size-7 place-items-center rounded-full bg-accent text-primary">
                 <Play className="size-3.5 fill-current" aria-hidden="true" />
@@ -92,7 +96,7 @@ export function Hero() {
               alt="Mockup do app VerioxPay com dashboard de faturamento"
               width={1024}
               height={1408}
-              className="mx-auto w-[78%] rotate-6 drop-shadow-2xl"
+              className="mx-auto w-[78%] rotate-6 drop-shadow-2xl [filter:drop-shadow(0_50px_60px_rgb(0_0_0/0.28))]"
             />
           </div>
 
