@@ -119,45 +119,49 @@ function LoginPage() {
       </div>
 
       {/* Right: brand panel */}
-      <aside className="relative hidden overflow-hidden bg-ink text-ink-foreground lg:block">
-        <div className="bloom absolute inset-0" aria-hidden="true" />
-        <div className="grain absolute inset-0" aria-hidden="true" />
-        <div className="relative flex h-full flex-col justify-between p-14">
-          <p className="eyebrow text-primary-glow">VerioxPay Platform</p>
+      <aside className="relative hidden overflow-hidden border-l border-white/5 bg-ink text-ink-foreground lg:flex lg:items-center lg:justify-center lg:p-12">
+        {/* Bloom glows */}
+        <div
+          className="pointer-events-none absolute -right-24 -top-24 size-96 rounded-full bg-primary opacity-15 blur-[120px]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 size-64 rounded-full bg-primary opacity-10 blur-[100px]"
+          aria-hidden="true"
+        />
+        <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
 
-          <div>
-            <h2 className="max-w-md text-4xl font-extrabold leading-[1.1] tracking-tight">
-              Dinheiro entrando.{" "}
-              <span className="text-gradient-brand">Sem atrito.</span>
-            </h2>
-            <p className="mt-4 max-w-sm text-sm text-ink-muted">
-              Multiadquirência inteligente, saque instantâneo e antifraude invisível em um
-              único painel.
-            </p>
+        <div className="relative z-10 max-w-lg">
+          <span className="eyebrow mb-8 block text-primary opacity-90" style={{ letterSpacing: "0.4em" }}>
+            VerioxPay Infrastructure
+          </span>
 
-            <div className="mt-10 grid max-w-md grid-cols-3 gap-3">
-              {[
-                { v: "+14%", l: "Aprovação" },
-                { v: "0.4ms", l: "Latência" },
-                { v: "24/7", l: "Suporte" },
-              ].map((s) => (
-                <div
-                  key={s.l}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
-                >
-                  <p className="text-xl font-extrabold tracking-tight">{s.v}</p>
-                  <p className="mt-1 text-xs text-ink-muted">{s.l}</p>
-                </div>
-              ))}
+          <h2 className="mb-6 text-4xl font-bold leading-[1.15] tracking-tight xl:text-5xl">
+            Potencialize suas vendas com a{" "}
+            <span className="text-gradient-brand">melhor conversão.</span>
+          </h2>
+
+          <p className="max-w-md text-lg leading-relaxed text-ink-muted">
+            O gateway de pagamentos brasileiro construído para alta performance e segurança
+            inabalável.
+          </p>
+
+          <div className="mt-12 flex items-center gap-4">
+            <div className="h-px w-12 bg-gradient-to-r from-primary to-transparent" />
+            <div className="flex gap-2">
+              <span className="size-1.5 rounded-full bg-primary" />
+              <span className="size-1.5 rounded-full bg-white/20" />
+              <span className="size-1.5 rounded-full bg-white/20" />
             </div>
           </div>
+        </div>
 
-          <p className="max-w-sm text-xs text-ink-muted">
-            Infraestrutura de pagamentos para negócios digitais que não podem parar de
-            vender.
-          </p>
+        {/* Floating brand mark */}
+        <div className="absolute bottom-12 right-12 opacity-20" aria-hidden="true">
+          <Logo className="[&_span]:text-ink-foreground" />
         </div>
       </aside>
+
     </main>
   );
 }
