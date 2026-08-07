@@ -330,8 +330,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
-  .reveal-up,
-  .float-slow {
+  .reveal-up {
     animation: none !important;
   }
 }
