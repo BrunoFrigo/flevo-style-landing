@@ -89,14 +89,14 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg">
+        <div className="relative mx-auto w-full max-w-xl">
           <div className="float-slow relative">
             <img
               src={heroPhone}
               alt="Mockup do app VerioxPay com dashboard de faturamento"
               width={1024}
               height={1408}
-              className="mx-auto w-[78%] rotate-6 drop-shadow-2xl [filter:drop-shadow(0_50px_60px_rgb(0_0_0/0.28))]"
+              className="mx-auto w-[min(100%,480px)] rotate-6 drop-shadow-2xl [filter:drop-shadow(0_50px_60px_rgb(0_0_0/0.28))]"
             />
           </div>
 

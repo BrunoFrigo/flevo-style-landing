@@ -294,7 +294,8 @@
 }
 
 @utility float-slow {
-  animation: float-slow 6s ease-in-out infinite;
+  animation: float-slow 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes marquee {
@@ -323,7 +324,7 @@
     transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(0, -14px, 0);
+    transform: translate3d(0, -26px, 0);
   }
 }
 
