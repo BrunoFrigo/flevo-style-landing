@@ -1,30 +1,51 @@
 import { ArrowRight, CheckCircle2, MousePointerClick, User, XCircle } from "lucide-react";
 
+const CYCLE = 5;
+const STEP = 0.9;
+
 function Node({
   label,
   sub,
   tone,
   icon: Icon,
+  step,
 }: {
   label: string;
   sub: string;
   tone: "neutral" | "error" | "success";
   icon: typeof User;
+  step: number;
 }) {
   const toneClass =
-    tone === "error"
-      ? "text-destructive"
-      : tone === "success"
-        ? "text-success"
-        : "text-ink-muted";
+    tone === "error" ? "text-destructive" : tone === "success" ? "text-success" : "text-ink-muted";
 
   return (
-    <div className="flex min-w-[9.5rem] flex-1 flex-col items-center gap-2 rounded-3xl border border-white/10 bg-white/5 px-5 py-6 text-center backdrop-blur-md">
-      <span className="grid size-10 place-items-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-brand">
+    <div
+      className="flow-node flex min-w-[9.5rem] flex-1 flex-col items-center gap-2 rounded-3xl border border-white/10 bg-white/5 px-5 py-6 text-center backdrop-blur-md"
+      style={{ animationDelay: `${step * STEP}s`, animationDuration: `${CYCLE}s` }}
+    >
+      <span className="flow-icon grid size-10 place-items-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-brand">
         <Icon className="size-5" aria-hidden="true" />
       </span>
       <p className="text-sm font-bold text-ink-foreground">{label}</p>
       <p className={`eyebrow ${toneClass}`}>{sub}</p>
+    </div>
+  );
+}
+
+function Flow({ step }: { step: number }) {
+  return (
+    <div className="relative hidden h-5 w-10 items-center self-center sm:flex">
+      <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-white/15" />
+      <span
+        className="flow-dot absolute left-0 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary-glow"
+        style={{ animationDelay: `${step * STEP}s`, animationDuration: `${CYCLE}s` }}
+      />
+      <ArrowRight
+        className="flow-arrow relative z-10 ml-auto size-5 text-primary"
+        style={{ animationDelay: `${step * STEP}s`, animationDuration: `${CYCLE}s` }}
+        aria-hidden="true"
+      />
     </div>
   );
 }
@@ -51,27 +72,21 @@ export function SmartRoute() {
           </div>
 
           <div className="mt-16 flex flex-wrap items-stretch justify-center gap-3 rounded-[2.25rem] border border-white/10 bg-white/[0.03] p-6 sm:gap-4 sm:p-10">
-            <Node label="Fernanda" sub="Cliente" tone="neutral" icon={User} />
-            <ArrowRight
-              className="hidden size-5 self-center text-primary sm:block"
-              aria-hidden="true"
+            <Node label="Fernanda" sub="Cliente" tone="neutral" icon={User} step={0} />
+            <Flow step={0} />
+            <Node
+              label="Click → Comprar"
+              sub="Checkout"
+              tone="neutral"
+              icon={MousePointerClick}
+              step={1}
             />
-            <Node label="Click → Comprar" sub="Checkout" tone="neutral" icon={MousePointerClick} />
-            <ArrowRight
-              className="hidden size-5 self-center text-primary sm:block"
-              aria-hidden="true"
-            />
-            <Node label="Adquirente 1" sub="Erro" tone="error" icon={XCircle} />
-            <ArrowRight
-              className="hidden size-5 self-center text-primary sm:block"
-              aria-hidden="true"
-            />
-            <Node label="Adquirente 2" sub="Sucesso" tone="success" icon={CheckCircle2} />
-            <ArrowRight
-              className="hidden size-5 self-center text-primary sm:block"
-              aria-hidden="true"
-            />
-            <Node label="Venda aprovada" sub="100%" tone="success" icon={CheckCircle2} />
+            <Flow step={1} />
+            <Node label="Adquirente 1" sub="Erro" tone="error" icon={XCircle} step={2} />
+            <Flow step={2} />
+            <Node label="Adquirente 2" sub="Sucesso" tone="success" icon={CheckCircle2} step={3} />
+            <Flow step={3} />
+            <Node label="Venda aprovada" sub="100%" tone="success" icon={CheckCircle2} step={4} />
           </div>
         </div>
       </div>
