@@ -570,11 +570,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
-  .reveal-up,
-  .route-node,
-  .route-connector,
-  .route-particle,
-  .route-live-dot {
+  .reveal-up {
     animation: none !important;
   }
 }
