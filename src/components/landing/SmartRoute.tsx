@@ -1,92 +1,130 @@
 import { ArrowRight, CheckCircle2, MousePointerClick, User, XCircle } from "lucide-react";
 
-const CYCLE = 5;
-const STEP = 0.9;
+const ROUTE_CYCLE = 5.4;
+const ROUTE_STEP = 1.08;
 
-function Node({
+type NodeTone = "primary" | "error" | "success";
+
+function RouteNode({
   label,
-  sub,
+  eyebrow,
+  detail,
   tone,
   icon: Icon,
   step,
 }: {
   label: string;
-  sub: string;
-  tone: "neutral" | "error" | "success";
+  eyebrow: string;
+  detail: string;
+  tone: NodeTone;
   icon: typeof User;
   step: number;
 }) {
-  const toneClass =
-    tone === "error" ? "text-destructive" : tone === "success" ? "text-success" : "text-ink-muted";
-
   return (
-    <div
-      className="flow-node flex min-w-[9.5rem] flex-1 flex-col items-center gap-2 rounded-3xl border border-white/10 bg-white/5 px-5 py-6 text-center backdrop-blur-md"
-      style={{ animationDelay: `${step * STEP}s`, animationDuration: `${CYCLE}s` }}
+    <article
+      className={`route-node route-node-${tone}`}
+      style={{ animationDelay: `${step * ROUTE_STEP}s`, animationDuration: `${ROUTE_CYCLE}s` }}
     >
-      <span className="flow-icon grid size-10 place-items-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-brand">
-        <Icon className="size-5" aria-hidden="true" />
-      </span>
-      <p className="text-sm font-bold text-ink-foreground">{label}</p>
-      <p className={`eyebrow ${toneClass}`}>{sub}</p>
-    </div>
+      <div className="flex items-start justify-between gap-4">
+        <span className="route-icon">
+          <Icon className="size-5" aria-hidden="true" />
+        </span>
+        <span className="route-node-index">0{step + 1}</span>
+      </div>
+      <div className="mt-7">
+        <p className="route-node-eyebrow">{eyebrow}</p>
+        <h3 className="mt-2 text-lg font-extrabold tracking-tight text-foreground">{label}</h3>
+        <p className="mt-2 text-sm text-muted-foreground">{detail}</p>
+      </div>
+    </article>
   );
 }
 
-function Flow({ step }: { step: number }) {
+function RouteConnector({ step }: { step: number }) {
   return (
-    <div className="relative hidden h-5 w-10 items-center self-center sm:flex">
-      <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-white/15" />
-      <span
-        className="flow-dot absolute left-0 top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-primary-glow"
-        style={{ animationDelay: `${step * STEP}s`, animationDuration: `${CYCLE}s` }}
-      />
-      <ArrowRight
-        className="flow-arrow relative z-10 ml-auto size-5 text-primary"
-        style={{ animationDelay: `${step * STEP}s`, animationDuration: `${CYCLE}s` }}
-        aria-hidden="true"
-      />
+    <div
+      className="route-connector"
+      style={{ animationDelay: `${step * ROUTE_STEP}s`, animationDuration: `${ROUTE_CYCLE}s` }}
+      aria-hidden="true"
+    >
+      <span className="route-line" />
+      <span className="route-particle" />
+      <ArrowRight className="route-arrow" />
     </div>
   );
 }
 
 export function SmartRoute() {
   return (
-    <section
-      id="smartroute"
-      className="grain scroll-mt-24 overflow-hidden border-y border-border bg-ink"
-    >
-      <div className="bloom">
+    <section id="smartroute" className="smartroute-section scroll-mt-24 overflow-hidden border-y border-border">
+      <div className="smartroute-ambient">
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
-          <span className="eyebrow text-primary-glow">SmartRoute</span>
-          <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:items-end">
-            <h2 className="max-w-xl text-4xl font-extrabold leading-[1.03] tracking-tighter text-ink-foreground sm:text-5xl">
-              Recupere até <span className="text-gradient-brand">14% em vendas</span> com o
-              SmartRoute da Veriox.
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="eyebrow text-primary">SmartRoute</span>
+            <h2 className="mt-7 text-4xl font-extrabold leading-[1.02] tracking-tighter text-foreground sm:text-6xl">
+              Recupere até <span className="text-gradient-brand">14% em vendas</span>
+              <br className="hidden sm:block" /> com o SmartRoute da Veriox.
             </h2>
-            <p className="max-w-xl text-base leading-relaxed text-ink-muted">
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               O SmartRoute orquestra múltiplos adquirentes em tempo real. Se uma transação falhar em
               um provedor, o processamento é reroteado instantaneamente para o próximo — sem o
               comprador perceber, até chegar ao sucesso.
             </p>
           </div>
 
-          <div className="mt-16 flex flex-wrap items-stretch justify-center gap-3 rounded-[2.25rem] border border-white/10 bg-white/[0.03] p-6 sm:gap-4 sm:p-10">
-            <Node label="Fernanda" sub="Cliente" tone="neutral" icon={User} step={0} />
-            <Flow step={0} />
-            <Node
-              label="Click → Comprar"
-              sub="Checkout"
-              tone="neutral"
-              icon={MousePointerClick}
-              step={1}
-            />
-            <Flow step={1} />
-            <Node label="Adquirente 1" sub="Erro" tone="error" icon={XCircle} step={2} />
-            <Flow step={2} />
-            <Node label="Adquirente 2" sub="Sucesso" tone="success" icon={CheckCircle2} step={3} />
-            <Flow step={3} />
-            <Node label="Venda aprovada" sub="100%" tone="success" icon={CheckCircle2} step={4} />
+          <div className="route-board mt-16 lg:mt-20">
+            <div className="route-board-header">
+              <div>
+                <p className="route-board-kicker">Roteamento inteligente</p>
+                <p className="mt-2 text-sm text-muted-foreground">Uma venda. A melhor rota disponível.</p>
+              </div>
+              <div className="route-live">
+                <span className="route-live-dot" />
+                <span>Operação ao vivo</span>
+              </div>
+            </div>
+
+            <div className="route-path">
+              <RouteNode
+                label="Fernanda"
+                eyebrow="Cliente"
+                detail="Click → Comprar"
+                tone="primary"
+                icon={User}
+                step={0}
+              />
+              <RouteConnector step={0} />
+              <RouteNode
+                label="Adquirente 1"
+                eyebrow="Tentativa 01"
+                detail="Resposta recusada"
+                tone="error"
+                icon={XCircle}
+                step={1}
+              />
+              <RouteConnector step={1} />
+              <RouteNode
+                label="Adquirente 2"
+                eyebrow="Tentativa 02"
+                detail="Transação aprovada"
+                tone="success"
+                icon={CheckCircle2}
+                step={2}
+              />
+            </div>
+
+            <div className="route-board-footer">
+              <div className="flex items-center gap-3">
+                <span className="route-success-icon">
+                  <CheckCircle2 className="size-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-foreground">Venda aprovada</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Sem interrupção para o comprador</p>
+                </div>
+              </div>
+              <span className="route-approved">100% de continuidade</span>
+            </div>
           </div>
         </div>
       </div>
