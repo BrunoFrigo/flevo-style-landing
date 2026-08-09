@@ -328,108 +328,253 @@
   }
 }
 
-/* SmartRoute flow animation */
-.flow-node {
-  animation-name: flow-node;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  animation-iteration-count: infinite;
+/* SmartRoute: premium routing board */
+.smartroute-section {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 70% 55% at 50% 18%, color-mix(in oklab, var(--primary) 9%, transparent), transparent 72%),
+    linear-gradient(180deg, color-mix(in oklab, var(--primary-glow) 4%, var(--background)), var(--background));
 }
 
-.flow-node .flow-icon {
-  animation-name: flow-icon;
-  animation-duration: inherit;
-  animation-delay: inherit;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  animation-iteration-count: infinite;
+.smartroute-ambient {
+  position: relative;
 }
 
-.flow-arrow {
-  animation-name: flow-arrow;
+.smartroute-ambient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.route-board {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--foreground) 9%, transparent);
+  border-radius: 2rem;
+  background: color-mix(in oklab, var(--card) 90%, transparent);
+  box-shadow: 0 32px 90px -48px color-mix(in oklab, var(--primary) 45%, transparent), var(--shadow-elevated);
+}
+
+.route-board::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, color-mix(in oklab, white 65%, transparent), transparent 38%);
+  opacity: 0.32;
+}
+
+.route-board-header,
+.route-board-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem;
+}
+
+.route-board-header {
+  border-bottom: 1px solid color-mix(in oklab, var(--foreground) 7%, transparent);
+}
+
+.route-board-kicker,
+.route-node-eyebrow {
+  color: var(--primary);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.route-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--success) 24%, transparent);
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  color: var(--success);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.route-live-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--success);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--success) 14%, transparent);
+  animation: route-live-pulse 2s ease-in-out infinite;
+}
+
+.route-path {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 4.5rem 1fr 4.5rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1.75rem;
+}
+
+.route-node {
+  min-height: 12.5rem;
+  padding: 1.5rem;
+  border: 1px solid color-mix(in oklab, var(--foreground) 9%, transparent);
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, var(--card) 86%, transparent);
+  box-shadow: 0 18px 42px -30px color-mix(in oklab, var(--foreground) 30%, transparent);
+  animation-name: route-node-pulse;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.route-node-error {
+  animation-name: route-node-error;
+}
+
+.route-node-success {
+  animation-name: route-node-success;
+}
+
+.route-icon,
+.route-success-icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 11%, transparent);
+}
+
+.route-node-error .route-icon {
+  color: var(--destructive);
+  background: color-mix(in oklab, var(--destructive) 10%, transparent);
+}
+
+.route-node-success .route-icon,
+.route-success-icon {
+  color: var(--success);
+  background: color-mix(in oklab, var(--success) 11%, transparent);
+}
+
+.route-node-index {
+  color: color-mix(in oklab, var(--foreground) 35%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+.route-connector {
+  position: relative;
+  height: 1.5rem;
+  animation-name: route-connector-pulse;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
 
-.flow-dot {
-  animation-name: flow-dot;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-  opacity: 0;
+.route-line {
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: color-mix(in oklab, var(--primary) 22%, transparent);
 }
 
-@keyframes flow-node {
-  0%,
-  100% {
-    border-color: color-mix(in oklab, white 10%, transparent);
-    box-shadow: none;
-    transform: translate3d(0, 0, 0);
-  }
-  8% {
-    border-color: color-mix(in oklab, var(--primary) 60%, transparent);
-    box-shadow: 0 18px 46px -24px color-mix(in oklab, var(--primary) 90%, transparent);
-    transform: translate3d(0, -6px, 0);
-  }
-  24% {
-    border-color: color-mix(in oklab, white 10%, transparent);
-    box-shadow: none;
-    transform: translate3d(0, 0, 0);
-  }
+.route-arrow {
+  position: absolute;
+  right: -0.25rem;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  color: var(--primary);
+  transform: translateY(-50%);
 }
 
-@keyframes flow-icon {
-  0%,
-  100% {
-    transform: scale(1);
-    filter: none;
-  }
-  8% {
-    transform: scale(1.12);
-    filter: brightness(1.2);
-  }
-  24% {
-    transform: scale(1);
-    filter: none;
-  }
+.route-particle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--primary-glow);
+  box-shadow: 0 0 0.75rem color-mix(in oklab, var(--primary) 70%, transparent);
+  animation: route-particle 5.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 
-@keyframes flow-arrow {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: translate3d(0, 0, 0);
-  }
-  12% {
-    opacity: 1;
-    transform: translate3d(3px, 0, 0);
-  }
-  26% {
-    opacity: 0.35;
-    transform: translate3d(0, 0, 0);
-  }
+.route-board-footer {
+  border-top: 1px solid color-mix(in oklab, var(--foreground) 7%, transparent);
 }
 
-@keyframes flow-dot {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -50%, 0);
-  }
-  4% {
-    opacity: 1;
-  }
-  16% {
-    opacity: 1;
-    transform: translate3d(28px, -50%, 0);
-  }
-  20%,
-  100% {
-    opacity: 0;
-    transform: translate3d(28px, -50%, 0);
-  }
+.route-approved {
+  color: var(--success);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
+@keyframes route-node-pulse {
+  0%, 100% { transform: translateY(0); border-color: color-mix(in oklab, var(--foreground) 9%, transparent); }
+  9%, 23% { transform: translateY(-6px); border-color: color-mix(in oklab, var(--primary) 48%, transparent); box-shadow: 0 22px 46px -25px color-mix(in oklab, var(--primary) 50%, transparent); }
+}
+
+@keyframes route-node-error {
+  0%, 100%, 9% { border-color: color-mix(in oklab, var(--foreground) 9%, transparent); }
+  14%, 25% { border-color: color-mix(in oklab, var(--destructive) 45%, transparent); box-shadow: 0 22px 46px -25px color-mix(in oklab, var(--destructive) 34%, transparent); }
+}
+
+@keyframes route-node-success {
+  0%, 100%, 18% { border-color: color-mix(in oklab, var(--foreground) 9%, transparent); }
+  23%, 38% { border-color: color-mix(in oklab, var(--success) 55%, transparent); box-shadow: 0 22px 46px -25px color-mix(in oklab, var(--success) 38%, transparent); }
+}
+
+@keyframes route-connector-pulse {
+  0%, 100% { opacity: 0.55; }
+  18%, 30% { opacity: 1; }
+}
+
+@keyframes route-particle {
+  0%, 4% { opacity: 0; transform: translate(-50%, -50%); }
+  9% { opacity: 1; }
+  34% { opacity: 1; transform: translate(calc(100% + 2.2rem), -50%); }
+  42%, 100% { opacity: 0; transform: translate(calc(100% + 2.2rem), -50%); }
+}
+
+@keyframes route-live-pulse {
+  50% { opacity: 0.45; transform: scale(0.75); }
+}
+
+@media (max-width: 767px) {
+  .route-board-header,
+  .route-board-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .route-path {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .route-connector {
+    height: 2rem;
+    width: 100%;
+    transform: rotate(90deg);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
-  .reveal-up {
+  .reveal-up,
+  .route-node,
+  .route-connector,
+  .route-particle,
+  .route-live-dot {
     animation: none !important;
   }
 }
