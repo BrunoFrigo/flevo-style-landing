@@ -16,7 +16,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
       <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-12 px-6 py-10 lg:grid-cols-2 lg:px-10">
         {/* Left: brand story */}
         <div className="relative">
-          <Link to="/" className="mb-16 inline-flex lg:mb-24">
+          <Link to="/" className="mb-16 block w-fit lg:mb-24">
             <Logo />
           </Link>
 
