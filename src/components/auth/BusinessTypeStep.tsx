@@ -31,6 +31,8 @@ const options: Array<{
 ];
 
 export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessType) => void }) {
+  const [selected, setSelected] = useState<BusinessType | null>(null);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-ink text-ink-foreground">
       <div className="pointer-events-none absolute inset-0 bloom opacity-80" aria-hidden="true" />
@@ -62,39 +64,49 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5">
-          {options.map(({ id, icon: Icon, eyebrow, title, description, items }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => onComplete(id)}
-              className="group relative min-h-[320px] overflow-hidden rounded-2xl border border-ink-foreground/10 bg-ink-soft p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-glow sm:p-7"
-            >
-              <span className="absolute right-5 top-5 grid size-7 place-items-center rounded-full border border-ink-foreground/10 text-ink-muted opacity-0 transition group-hover:opacity-100">
-                <ArrowRight className="size-3.5" aria-hidden="true" />
-              </span>
-              <span className="mb-8 grid size-11 place-items-center rounded-xl border border-ink-foreground/10 bg-ink-foreground/5 text-primary-glow transition group-hover:border-primary/50 group-hover:bg-primary/15">
-                <Icon className="size-5" aria-hidden="true" />
-              </span>
-              <span className="eyebrow text-ink-muted">{eyebrow}</span>
-              <h2 className="mt-2 text-xl font-bold tracking-tight text-ink-foreground">{title}</h2>
-              <p className="mt-2 max-w-sm text-sm leading-relaxed text-ink-muted">{description}</p>
-              <ul className="mt-5 grid gap-2 text-xs text-ink-muted sm:grid-cols-2">
-                {items.map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <Check className="size-3.5 shrink-0 text-primary-glow" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </button>
-          ))}
+          {options.map(({ id, icon: Icon, eyebrow, title, description, items }) => {
+            const isSelected = selected === id;
+            return (
+              <Button
+                key={id}
+                type="button"
+                variant="ghost"
+                onClick={() => setSelected(id)}
+                aria-pressed={isSelected}
+                className={`group relative min-h-[320px] w-full justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 hover:-translate-y-1 sm:p-7 ${
+                  isSelected
+                    ? "border-primary bg-primary/10 shadow-brand"
+                    : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:shadow-brand"
+                }`}
+              >
+                <span className={`absolute right-5 top-5 grid size-7 place-items-center rounded-full border transition ${isSelected ? "border-primary bg-primary text-primary-foreground opacity-100" : "border-ink-foreground/10 text-ink-muted opacity-0 group-hover:opacity-100"}`}>
+                  {isSelected ? <Check className="size-3.5" aria-hidden="true" /> : <ArrowRight className="size-3.5" aria-hidden="true" />}
+                </span>
+                <span className="mb-8 grid size-11 place-items-center rounded-xl border border-ink-foreground/10 bg-ink-foreground/5 text-primary-glow transition group-hover:border-primary/50 group-hover:bg-primary/15">
+                  <Icon className="size-5" aria-hidden="true" />
+                </span>
+                <span className="eyebrow text-ink-muted">{eyebrow}</span>
+                <span className="mt-2 block text-xl font-bold tracking-tight text-ink-foreground">{title}</span>
+                <span className="mt-2 block max-w-sm text-sm leading-relaxed text-ink-muted">{description}</span>
+                <ul className="mt-5 grid gap-2 text-xs text-ink-muted sm:grid-cols-2">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <Check className="size-3.5 shrink-0 text-primary-glow" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Button>
+            );
+          })}
         </div>
 
         <div className="mt-8 flex items-center justify-between gap-5 border-t border-ink-foreground/10 pt-6">
           <p className="text-xs text-ink-muted">Você poderá ajustar essa escolha depois.</p>
           <Button
             type="button"
-            onClick={() => onComplete("infoprodutor")}
+            disabled={!selected}
+            onClick={() => selected && onComplete(selected)}
             className="h-11 rounded-xl bg-gradient-brand px-6 font-bold text-primary-foreground shadow-brand hover:brightness-110"
           >
             Começar
