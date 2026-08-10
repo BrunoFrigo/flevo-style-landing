@@ -169,6 +169,7 @@ export function SmartRoute() {
                   Sucesso
                 </span>
               </div>
+              {successShown ? <SuccessCheck /> : null}
             </div>
           </div>
 
