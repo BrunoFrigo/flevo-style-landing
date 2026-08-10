@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Building2, CreditCard, Eye, EyeOff, Lock, Mail, Phone } from "lucide-react";
 import { AuthLayout, Divider, Field, GoogleButton } from "@/components/auth/AuthLayout";
+import { BusinessTypeStep } from "@/components/auth/BusinessTypeStep";
 
 export const Route = createFileRoute("/cadastro")({
   head: () => ({
@@ -27,6 +28,11 @@ export const Route = createFileRoute("/cadastro")({
 function SignupPage() {
   const [show, setShow] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [businessTypeStep, setBusinessTypeStep] = useState(false);
+
+  if (businessTypeStep) {
+    return <BusinessTypeStep onComplete={() => undefined} />;
+  }
 
   return (
     <AuthLayout>
@@ -37,7 +43,13 @@ function SignupPage() {
         Preencha os dados abaixo para começar a vender.
       </p>
 
-      <form className="mt-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className="mt-8 space-y-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          setBusinessTypeStep(true);
+        }}
+      >
         <Field
           id="nome"
           label="Nome"
