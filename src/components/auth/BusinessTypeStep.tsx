@@ -67,7 +67,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
                 variant="ghost"
                 onClick={() => setSelected(id)}
                 aria-pressed={isSelected}
-                className={`group relative min-h-[320px] w-full justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 hover:-translate-y-1 sm:p-7 ${
+                className={`group relative flex min-h-[320px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 hover:-translate-y-1 sm:p-7 ${
                   isSelected
                     ? "border-primary bg-primary/10 shadow-brand"
                     : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:shadow-brand"
