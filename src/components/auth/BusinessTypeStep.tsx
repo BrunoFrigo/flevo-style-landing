@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ArrowRight, BookOpen, Check, Flame, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Check, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/landing/Logo";
 
 type BusinessType = "infoprodutor" | "nicho-hot";
 
@@ -39,14 +40,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center px-6 py-12 sm:px-10">
         <div className="mb-12 flex items-center justify-between gap-6 sm:mb-16">
-          <div className="flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-gradient-brand shadow-brand">
-              <Sparkles className="size-5 text-primary-foreground" aria-hidden="true" />
-            </span>
-            <span className="text-lg font-extrabold tracking-tight">
-              Veriox<span className="text-primary-glow">Pay</span>
-            </span>
-          </div>
+          <Logo inverted />
           <span className="eyebrow hidden text-ink-muted sm:block">Configuração inicial</span>
         </div>
 

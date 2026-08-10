@@ -1,4 +1,4 @@
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "", inverted = false }: { className?: string; inverted?: boolean }) {
   return (
     <span className={`flex items-center gap-2 ${className}`}>
       <span className="grid size-9 place-items-center rounded-xl bg-gradient-brand shadow-brand">
@@ -10,7 +10,7 @@ export function Logo({ className = "" }: { className?: string }) {
           />
         </svg>
       </span>
-      <span className="text-xl font-extrabold tracking-tight text-foreground">
+      <span className={`text-xl font-extrabold tracking-tight ${inverted ? "text-ink-foreground" : "text-foreground"}`}>
         Veriox<span className="text-primary">Pay</span>
       </span>
     </span>
