@@ -57,6 +57,32 @@ function ErrorCross() {
   );
 }
 
+function SuccessCheck() {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 grid place-items-center"
+      style={{ animation: "fade-scale-in 0.5s cubic-bezier(0.22,1,0.36,1) both" }}
+    >
+      <div className="absolute inset-0 bg-primary/5" />
+      <svg
+        viewBox="0 0 100 100"
+        className="relative size-3/5 text-primary"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={9}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path
+          d="M22 52 42 72 78 30"
+          style={{ strokeDasharray: 100, strokeDashoffset: 100, animation: "draw-stroke 0.65s cubic-bezier(0.22,1,0.36,1) 0.1s forwards" }}
+        />
+      </svg>
+    </div>
+  );
+}
+
 export function SmartRoute() {
   const [step, setStep] = useState(0);
 
