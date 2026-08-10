@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowRight, BookOpen, Check, Flame, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
