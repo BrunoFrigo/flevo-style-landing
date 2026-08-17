@@ -6,7 +6,7 @@ export function Logo({ className = "", inverted = false }: { className?: string;
       <img
         src={logoAsset.url}
         alt="VerioxPay"
-        className="size-9 rounded-xl object-cover shadow-brand"
+        className="size-9 rounded-[10px] object-cover shadow-brand"
       />
       <span className={`text-xl font-extrabold tracking-tight ${inverted ? "text-ink-foreground" : "text-foreground"}`}>
         Veriox<span className="text-primary">Pay</span>
