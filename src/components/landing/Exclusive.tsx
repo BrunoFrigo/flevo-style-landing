@@ -1,4 +1,21 @@
-import apiReference from "@/assets/api-reference.png";
+const ENDPOINTS = [
+  { method: "POST", path: "/v1/pix/charges", desc: "Criar cobrança PIX IN" },
+  { method: "POST", path: "/v1/pix/payouts", desc: "Enviar PIX OUT" },
+  { method: "GET", path: "/v1/transactions/:id", desc: "Consultar transação" },
+  { method: "POST", path: "/v1/webhooks", desc: "Registrar webhook" },
+];
+
+const CODE: Array<{ t: string; c?: string }> = [
+  { t: "curl -X POST https://api.verioxpay.com/v1/pix/charges \\", c: "text-emerald-300" },
+  { t: '  -H "Authorization: Bearer $VERIOX_SECRET_KEY" \\' },
+  { t: '  -H "Content-Type: application/json" \\' },
+  { t: "  -d '{" },
+  { t: '    "amount": 24990,', c: "text-primary" },
+  { t: '    "currency": "BRL",', c: "text-primary" },
+  { t: '    "customer": { "document": "123.456.789-00" },' },
+  { t: '    "webhook_url": "https://sualoja.com/hooks/veriox"' },
+  { t: "  }'" },
+];
 
 export function Exclusive() {
   return (
@@ -13,15 +30,48 @@ export function Exclusive() {
             Construído para suportar volumes massivos sem sequer arranhar a performance.
           </p>
 
-          <img
-            src={apiReference}
-            alt="Referência da API VerioxPay com endpoints PIX IN e PIX OUT"
-            width={1280}
-            height={912}
-            loading="lazy"
-            className="mt-10 w-full rounded-3xl border border-border"
-          />
+          <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+            <ul className="flex flex-col gap-3">
+              {ENDPOINTS.map((e) => (
+                <li
+                  key={e.path}
+                  className="flex items-center gap-3 rounded-2xl border border-hairline bg-muted/50 px-4 py-3"
+                >
+                  <span className="rounded-md bg-primary/12 px-2 py-1 font-mono text-[11px] font-bold tracking-wide text-primary">
+                    {e.method}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate font-mono text-[13px] text-foreground">{e.path}</p>
+                    <p className="truncate text-xs text-muted-foreground">{e.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0c0d10] shadow-2xl">
+              <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+                <span className="ml-3 font-mono text-xs text-white/40">request.sh</span>
+              </div>
+              <pre className="overflow-x-auto px-5 py-5 font-mono text-[12.5px] leading-relaxed text-white/70">
+                <code>
+                  {CODE.map((line, i) => (
+                    <div key={i} className={line.c ?? ""}>
+                      {line.t || " "}
+                    </div>
+                  ))}
+                </code>
+              </pre>
+              <div className="border-t border-white/10 px-5 py-4 font-mono text-[12.5px] leading-relaxed">
+                <p className="text-white/40">// 200 OK · 0.4ms</p>
+                <p className="text-emerald-300">{'{ "status": "paid", "id": "txn_9f21c" }'}</p>
+              </div>
+            </div>
+          </div>
         </article>
+
 
         <div className="mt-6 grid gap-6 lg:grid-cols-3">
 
