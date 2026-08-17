@@ -1,5 +1,7 @@
 import { ArrowRight, Headphones, Play, Shield, ShieldCheck, Sparkles, Zap } from "lucide-react";
-import heroPhone from "@/assets/hero-phone.png";
+import heroPhoneAsset from "@/assets/hero-phone.png.asset.json";
+
+const heroPhone = heroPhoneAsset.url;
 
 const SEALS = [
   { icon: Sparkles, label: "Ativação rápida" },
@@ -96,7 +98,7 @@ export function Hero() {
               alt="Mockup do app VerioxPay com dashboard de faturamento"
               width={1024}
               height={1408}
-              className="mx-auto w-[min(100%,480px)] rotate-6 drop-shadow-2xl [filter:drop-shadow(0_50px_60px_rgb(0_0_0/0.28))]"
+              className="mx-auto w-[min(100%,560px)] rotate-6 drop-shadow-2xl [filter:drop-shadow(0_50px_60px_rgb(0_0_0/0.28))]"
             />
           </div>
 
