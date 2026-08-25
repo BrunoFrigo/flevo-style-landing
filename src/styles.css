@@ -133,6 +133,83 @@
 }
 
 
+/* Landing (dark) scope — Raven-style deep black surface with orange energy */
+.veriox-dark {
+  --background: oklch(0.145 0.012 60);
+  --foreground: oklch(0.98 0.005 75);
+  --card: oklch(0.19 0.014 60);
+  --card-foreground: oklch(0.98 0.005 75);
+  --popover: oklch(0.19 0.014 60);
+  --popover-foreground: oklch(0.98 0.005 75);
+  --primary: oklch(0.72 0.2 48);
+  --primary-foreground: oklch(0.16 0.02 55);
+  --primary-glow: oklch(0.82 0.16 70);
+  --secondary: oklch(0.24 0.016 60);
+  --secondary-foreground: oklch(0.98 0.005 75);
+  --muted: oklch(0.22 0.014 60);
+  --muted-foreground: oklch(0.72 0.014 70);
+  --accent: oklch(0.28 0.05 55);
+  --accent-foreground: oklch(0.85 0.15 60);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.2 48);
+  --ink: oklch(0.115 0.01 60);
+  --ink-soft: oklch(0.2 0.014 60);
+  --ink-foreground: oklch(0.98 0.005 75);
+  --ink-muted: oklch(0.74 0.014 70);
+  --hairline: oklch(1 0 0 / 10%);
+  --shadow-soft:
+    0 1px 0 0 oklch(1 0 0 / 6%) inset,
+    0 20px 50px -30px oklch(0 0 0 / 80%);
+  --shadow-elevated:
+    0 1px 0 0 oklch(1 0 0 / 8%) inset,
+    0 30px 70px -35px oklch(0 0 0 / 90%);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Dark variants of the shared surfaces */
+.veriox-dark .premium-card,
+.veriox-dark [class*="premium-card"] {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, white 6%, transparent),
+    color-mix(in oklab, white 1.5%, transparent)
+  );
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-soft);
+}
+
+.veriox-dark .glass-card,
+.veriox-dark [class*="glass-card"] {
+  background-color: color-mix(in oklab, var(--card) 70%, transparent);
+  border: 1px solid var(--hairline);
+}
+
+@utility halo {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    color-mix(in oklab, var(--primary) 30%, transparent),
+    transparent 70%
+  );
+  filter: blur(70px);
+}
+
+@utility drift-y {
+  animation: drift-y 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes drift-y {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
 
 .dark {
   --background: oklch(0.129 0.042 264.695);

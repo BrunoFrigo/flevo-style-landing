@@ -1,36 +1,59 @@
-import { ArrowRight, Headphones, Play, Shield, ShieldCheck, Sparkles, Zap } from "lucide-react";
-import heroPhoneAsset from "@/assets/hero-phone.png.asset.json";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import phones from "@/assets/raven-phones.png";
+import logoAsset from "@/assets/veriox-logo.jpg.asset.json";
 
-const heroPhone = heroPhoneAsset.url;
-
-const SEALS = [
-  { icon: Sparkles, label: "Ativação rápida" },
-  { icon: Shield, label: "Segurança de ponta" },
-  { icon: Headphones, label: "Suporte 24/7" },
+const NOTIFICATIONS: Array<{ title: string; sub?: string; className: string; delay: string }> = [
+  {
+    title: "✅ Automação executada com sucesso",
+    className: "left-0 top-[28%] hidden md:flex",
+    delay: "0s",
+  },
+  {
+    title: "🔄 Sequência de mensagens enviada",
+    className: "left-[-2%] top-[46%] hidden md:flex",
+    delay: "1.2s",
+  },
+  {
+    title: "📨 Mensagem entregue para 1.247 usuários",
+    className: "left-[8%] top-[64%] hidden lg:flex",
+    delay: "2.1s",
+  },
+  {
+    title: "Venda Realizada!",
+    sub: "Comissão: R$ 136,87",
+    className: "right-0 top-[30%] hidden md:flex",
+    delay: "0.6s",
+  },
+  {
+    title: "Automação executada com sucesso",
+    className: "right-[-1%] top-[52%] hidden lg:flex",
+    delay: "1.7s",
+  },
 ];
 
-function FloatCard({
-  icon: Icon,
+function NotifCard({
   title,
-  lines,
+  sub,
   className,
+  delay,
 }: {
-  icon: typeof Zap;
   title: string;
-  lines: string[];
+  sub?: string;
   className: string;
+  delay: string;
 }) {
   return (
-    <div className={`glass-card absolute w-52 rounded-3xl p-4 ${className}`}>
-      <span className="grid size-8 place-items-center rounded-xl bg-accent text-primary">
-        <Icon className="size-4" aria-hidden="true" />
-      </span>
-      <p className="mt-3 text-sm font-bold text-foreground">{title}</p>
-      {lines.map((line) => (
-        <p key={line} className="text-xs text-muted-foreground">
-          {line}
-        </p>
-      ))}
+    <div
+      style={{ animationDelay: delay }}
+      className={`drift-y absolute z-20 w-64 items-start gap-3 rounded-2xl border border-hairline bg-card/90 px-4 py-3 shadow-elevated backdrop-blur-xl ${className}`}
+    >
+      <img src={logoAsset.url} alt="" className="size-7 shrink-0 rounded-[8px] object-cover" />
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-semibold leading-snug text-foreground">{title}</p>
+        {sub && <p className="mt-0.5 text-xs text-primary">{sub}</p>}
+      </div>
+      <span className="text-[10px] text-muted-foreground">agora</span>
     </div>
   );
 }
@@ -40,95 +63,39 @@ export function Hero() {
     <section id="top" className="grain relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="bloom pointer-events-none absolute inset-0"
+        className="halo pointer-events-none absolute -top-40 left-1/2 size-[46rem] -translate-x-1/2 opacity-70"
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-48 right-0 size-[48rem] rounded-full bg-accent/60 blur-3xl"
-      />
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
-        <div className="reveal-up">
-          <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-card/80 px-4 py-2 text-xs font-medium text-muted-foreground shadow-soft backdrop-blur-md">
-            <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-            Plataforma de pagamentos para negócios digitais
-          </span>
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-8 pt-16 text-center lg:px-8 lg:pt-24">
+        <h1 className="reveal-up mx-auto max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tighter text-foreground sm:text-5xl lg:text-6xl">
+          A plataforma definitiva para gerenciar, escalar e vender com bots no Telegram
+        </h1>
+        <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Conecte múltiplos bots, crie campanhas automatizadas, venda em alta escala e acompanhe
+          tudo com traqueamento avançado pagando apenas por resultado.
+        </p>
+        <Link
+          to="/cadastro"
+          className="mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-1"
+        >
+          Criar Conta Gratuita
+          <ArrowUpRight className="size-5" aria-hidden="true" />
+        </Link>
 
-          <h1 className="mt-7 text-5xl font-extrabold leading-[0.95] tracking-tighter text-foreground sm:text-6xl lg:text-7xl">
-            Dinheiro entrando.
-            <span className="mt-2 block text-gradient-brand">Sem atrito.</span>
-          </h1>
-
-          <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">
-            O Gateway de pagamentos que maximiza conversão, reduz falhas e mantém sua operação
-            vendendo 24 horas por dia.
-          </p>
-
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#criar-conta"
-              className="inline-flex items-center justify-between gap-6 rounded-full bg-gradient-brand px-8 py-5 text-base font-bold text-primary-foreground shadow-brand transition-transform duration-500 hover:-translate-y-1"
-            >
-              Criar conta grátis <ArrowRight className="size-5" aria-hidden="true" />
-            </a>
-            <a
-              href="#smartroute"
-              className="inline-flex items-center gap-4 rounded-full border border-hairline bg-card px-8 py-5 text-base font-bold text-foreground shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-elevated"
-            >
-              <span className="grid size-7 place-items-center rounded-full bg-accent text-primary">
-                <Play className="size-3.5 fill-current" aria-hidden="true" />
-              </span>
-              Conhecer plataforma
-            </a>
-          </div>
-
-          <ul className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3">
-            {SEALS.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Icon className="size-4 text-primary" aria-hidden="true" />
-                {label}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-xl">
-          <div className="float-slow relative">
-            <img
-              src={heroPhone}
-              alt="Mockup do app VerioxPay com dashboard de faturamento"
-              width={1024}
-              height={1408}
-              className="mx-auto w-[min(100%,560px)] rotate-6 drop-shadow-2xl [filter:drop-shadow(0_50px_60px_rgb(0_0_0/0.28))]"
-            />
-          </div>
-
-          <FloatCard
-            icon={Zap}
-            title="Mais conversão"
-            lines={["Menos falhas.", "Mais vendas aprovadas."]}
-            className="-left-2 top-1/3 hidden sm:block"
+        <div className="relative mt-14">
+          <div
+            aria-hidden="true"
+            className="halo pointer-events-none absolute inset-x-1/4 bottom-0 top-1/4 opacity-60"
           />
-          <FloatCard
-            icon={ShieldCheck}
-            title="Operação segura"
-            lines={["Infraestrutura robusta", "e antifraude avançada."]}
-            className="-right-2 top-8 hidden sm:block"
+          <img
+            src={phones}
+            alt="Bots da VerioxPay funcionando no Telegram"
+            width={1280}
+            height={1024}
+            className="relative z-10 mx-auto w-[min(100%,880px)]"
           />
-          <FloatCard
-            icon={Headphones}
-            title="Venda 24 horas"
-            lines={["Seu negócio nunca", "para de vender."]}
-            className="-right-2 bottom-24 hidden sm:block"
-          />
-
-          <div className="glass-card mx-auto mt-4 flex w-fit items-center gap-5 rounded-full px-6 py-3 text-sm font-bold text-foreground">
-            {["Pix", "Cartão", "Boleto"].map((m) => (
-              <span key={m} className="flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-                {m}
-              </span>
-            ))}
-          </div>
+          {NOTIFICATIONS.map((n) => (
+            <NotifCard key={n.title} {...n} />
+          ))}
         </div>
       </div>
     </section>
