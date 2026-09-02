@@ -43,8 +43,8 @@ export function Markets() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {MARKETS.map(({ icon: Icon, title, text }) => (
-            <article key={title} className="premium-card rounded-3xl p-8">
-              <span className="grid size-12 place-items-center rounded-2xl bg-accent text-primary">
+            <article key={title} className="premium-card rounded-lg p-8">
+              <span className="grid size-12 place-items-center rounded-lg bg-accent text-primary">
                 <Icon className="size-6" aria-hidden="true" />
               </span>
               <h3 className="mt-6 text-lg font-bold text-foreground">{title}</h3>

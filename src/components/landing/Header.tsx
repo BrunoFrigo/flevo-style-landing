@@ -14,14 +14,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-5 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-hairline bg-background/80 backdrop-blur-2xl">
+      <div className="mx-auto grid h-20 w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 sm:flex sm:justify-between lg:px-8">
         <a href="#top" aria-label="VerioxPay — início">
           <Logo inverted />
         </a>
 
         <nav
-          className="hidden items-center gap-1 rounded-full border border-hairline bg-card/60 px-2 py-2 backdrop-blur-xl lg:flex"
+          className="hidden items-center gap-1 rounded-full border border-hairline bg-card/60 px-2 py-2 shadow-soft backdrop-blur-xl lg:flex"
           aria-label="Principal"
         >
           {NAV.map((item) => (
@@ -53,7 +53,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Abrir menu"
             aria-expanded={open}
-            className="grid size-11 place-items-center rounded-full border border-hairline bg-card lg:hidden"
+            className="grid size-11 shrink-0 place-items-center rounded-lg border border-hairline bg-card lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -61,7 +61,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-hairline bg-card px-5 py-4 lg:hidden" aria-label="Mobile">
+        <nav className="border-t border-hairline bg-background/95 px-5 py-4 backdrop-blur-2xl lg:hidden" aria-label="Mobile">
           <ul className="flex flex-col gap-3">
             {NAV.map((item) => (
               <li key={item.label}>

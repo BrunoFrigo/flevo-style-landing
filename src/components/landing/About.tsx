@@ -18,9 +18,12 @@ const BULLETS = [
 
 export function About() {
   return (
-    <section id="sobre" className="scroll-mt-24">
+    <section id="sobre" className="scroll-mt-24 border-b border-hairline bg-ink">
       <div className="mx-auto w-full max-w-7xl px-5 py-24 lg:px-8">
-        <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">
+        <div className="mx-auto mb-8 flex w-fit items-center gap-2 font-mono text-[10px] uppercase text-primary">
+          <span className="size-1.5 rounded-full bg-primary" /> Operação em tempo real
+        </div>
+        <p className="mx-auto max-w-3xl text-center text-xl leading-relaxed text-muted-foreground">
           A VerioxPay é uma plataforma de bots para Telegram focada em vendas, automação e escala.
           Gerencie <strong className="text-foreground">múltiplos bots</strong>, integre pagamentos e{" "}
           <strong className="text-foreground">
@@ -30,7 +33,7 @@ export function About() {
         <div className="mt-8 flex justify-center">
           <Link
             to="/cadastro"
-            className="rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-0.5"
+            className="rounded-lg bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-0.5"
           >
             Criar Conta Gratuita
           </Link>
@@ -38,7 +41,7 @@ export function About() {
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s) => (
-            <div key={s.label} className="premium-card rounded-3xl p-6 text-left">
+              <div key={s.label} className="premium-card rounded-lg p-6 text-left">
               <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
                 {s.label}
               </p>
@@ -62,9 +65,9 @@ export function About() {
           </div>
           <ul className="flex flex-col gap-3">
             {BULLETS.map((b) => (
-              <li
+                <li
                 key={b}
-                className="premium-card flex items-start gap-3 rounded-2xl px-5 py-4 text-sm text-foreground"
+                  className="premium-card flex items-start gap-3 rounded-lg px-5 py-4 text-sm text-foreground"
               >
                 <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                   <Check className="size-3.5" aria-hidden="true" />
