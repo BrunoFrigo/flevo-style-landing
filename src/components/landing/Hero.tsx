@@ -147,8 +147,8 @@ export function Hero() {
             height={1024}
             className="float-slow relative z-10 mx-auto w-[min(112%,940px)] max-w-none"
           />
-          {NOTIFICATIONS.map((n) => (
-            <NotifCard key={n.title} {...n} />
+          {NOTIFICATIONS.map((n, index) => (
+            <NotifCard key={`${n.app}-${index}`} {...n} />
           ))}
         </div>
       </div>
