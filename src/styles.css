@@ -135,9 +135,9 @@
 
 /* Landing (dark) scope — Raven-style deep black surface with orange energy */
 .veriox-dark {
-  --background: oklch(0.145 0.012 60);
+  --background: oklch(0.105 0.008 60);
   --foreground: oklch(0.98 0.005 75);
-  --card: oklch(0.19 0.014 60);
+  --card: oklch(0.155 0.012 60);
   --card-foreground: oklch(0.98 0.005 75);
   --popover: oklch(0.19 0.014 60);
   --popover-foreground: oklch(0.98 0.005 75);
@@ -146,14 +146,14 @@
   --primary-glow: oklch(0.82 0.16 70);
   --secondary: oklch(0.24 0.016 60);
   --secondary-foreground: oklch(0.98 0.005 75);
-  --muted: oklch(0.22 0.014 60);
+  --muted: oklch(0.19 0.012 60);
   --muted-foreground: oklch(0.72 0.014 70);
   --accent: oklch(0.28 0.05 55);
   --accent-foreground: oklch(0.85 0.15 60);
   --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.72 0.2 48);
-  --ink: oklch(0.115 0.01 60);
+  --ink: oklch(0.075 0.006 60);
   --ink-soft: oklch(0.2 0.014 60);
   --ink-foreground: oklch(0.98 0.005 75);
   --ink-muted: oklch(0.74 0.014 70);
@@ -166,6 +166,23 @@
     0 30px 70px -35px oklch(0 0 0 / 90%);
   background-color: var(--background);
   color: var(--foreground);
+}
+
+.cyber-grid {
+  background-image:
+    radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--primary) 13%, transparent), transparent 42%),
+    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 0);
+  background-size: auto, 40px 40px;
+}
+
+.status-pulse {
+  animation: status-pulse 2s ease-out infinite;
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
+@keyframes status-pulse {
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
 }
 
 /* Dark variants of the shared surfaces */
@@ -454,7 +471,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
-  .reveal-up {
+  .reveal-up,
+  .status-pulse,
+  .float-slow,
+  .drift-y {
     animation: none !important;
   }
 }

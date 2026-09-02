@@ -9,7 +9,7 @@ export function FinalCta() {
         aria-hidden="true"
         className="halo pointer-events-none absolute inset-x-1/4 -top-20 h-[30rem] opacity-70"
       />
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-28 text-center lg:px-8">
+      <div className="cyber-grid relative z-10 mx-auto w-full max-w-7xl px-5 py-28 text-center lg:px-8">
         <h2 className="mx-auto max-w-2xl text-4xl font-extrabold leading-[1.05] tracking-tighter text-foreground sm:text-5xl">
           Faça parte hoje mesmo com apenas um clique
         </h2>
@@ -18,7 +18,7 @@ export function FinalCta() {
         </p>
         <Link
           to="/cadastro"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-base font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-1"
+          className="mt-10 inline-flex items-center gap-3 rounded-lg bg-primary px-9 py-4 text-base font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-1"
         >
           Criar Conta Gratuita
           <ArrowUpRight className="size-5" aria-hidden="true" />

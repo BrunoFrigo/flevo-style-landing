@@ -31,7 +31,7 @@ export function Scale() {
             {POINTS.map((p) => (
               <li
                 key={p}
-                className="flex items-center gap-2 rounded-full border border-hairline bg-card/70 px-4 py-2 text-sm text-foreground"
+                className="flex items-center gap-2 rounded-lg border border-hairline bg-card/70 px-4 py-2 text-sm text-foreground"
               >
                 <Check className="size-4 text-primary" aria-hidden="true" />
                 {p}

@@ -39,7 +39,7 @@ export function Steps() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s) => (
-            <article key={s.n} className="premium-card rounded-3xl p-8">
+            <article key={s.n} className="premium-card hairline-top overflow-hidden rounded-lg p-8">
               <span className="text-4xl font-extrabold tracking-tighter text-primary/40">{s.n}</span>
               <h3 className="mt-6 text-lg font-bold text-foreground">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
@@ -50,7 +50,7 @@ export function Steps() {
         <div className="mt-12 flex justify-center">
           <Link
             to="/cadastro"
-            className="rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-0.5"
+            className="rounded-lg bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-brand transition-transform duration-300 hover:-translate-y-0.5"
           >
             Criar Conta Gratuita
           </Link>

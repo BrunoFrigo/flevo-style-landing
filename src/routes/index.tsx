@@ -1,15 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { SmartRoute } from "@/components/landing/SmartRoute";
-import { Features } from "@/components/landing/Features";
-import { Integrations } from "@/components/landing/Integrations";
-import { Exclusive } from "@/components/landing/Exclusive";
+import { About } from "@/components/landing/About";
+import { Steps } from "@/components/landing/Steps";
+import { Markets } from "@/components/landing/Markets";
+import { Scale } from "@/components/landing/Scale";
+import { IntegrationsFlex } from "@/components/landing/IntegrationsFlex";
 import { FinalCta, Footer } from "@/components/landing/FinalCta";
 
-const TITLE = "VerioxPay — Gateway de pagamentos sem atrito";
+const TITLE = "VerioxPay — Automação e vendas no Telegram";
 const DESCRIPTION =
-  "Gateway de pagamentos com SmartRoute, multiadquirência inteligente e saque instantâneo. Pix, cartão e boleto vendendo 24 horas por dia.";
+  "Gerencie bots, automatize campanhas e escale suas vendas no Telegram com pagamentos integrados e acompanhamento em tempo real.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -31,14 +32,15 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background font-sans antialiased">
+    <div className="veriox-dark min-h-screen overflow-hidden bg-background font-sans antialiased">
       <Header />
       <main>
         <Hero />
-        <SmartRoute />
-        <Features />
-        <Integrations />
-        <Exclusive />
+        <About />
+        <Steps />
+        <Markets />
+        <Scale />
+        <IntegrationsFlex />
         <FinalCta />
       </main>
       <Footer />

@@ -37,7 +37,7 @@ export function IntegrationsFlex() {
               Integrações amplas e sem limitações, para infoprodutores, afiliados e empresas que
               usam o Telegram como canal de vendas.
             </p>
-            <div className="premium-card mt-8 flex items-center justify-between rounded-2xl px-6 py-5">
+            <div className="premium-card mt-8 flex items-center justify-between rounded-lg px-6 py-5">
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">
                   Taxa por transação
@@ -54,8 +54,8 @@ export function IntegrationsFlex() {
 
           <div className="grid gap-5 sm:grid-cols-2">
             {ITEMS.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="premium-card rounded-3xl p-7">
-                <span className="grid size-11 place-items-center rounded-2xl bg-accent text-primary">
+              <article key={title} className="premium-card rounded-lg p-7">
+                <span className="grid size-11 place-items-center rounded-lg bg-accent text-primary">
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 text-base font-bold text-foreground">{title}</h3>
