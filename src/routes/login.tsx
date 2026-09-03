@@ -57,7 +57,7 @@ function LoginPage() {
               type={showPassword ? "text" : "password"}
               autoComplete="current-password"
               placeholder="••••••••"
-              className="h-12 w-full rounded-xl border border-border bg-card pl-11 pr-12 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15"
+              className="h-12 w-full rounded-[8px] border border-border bg-background/55 pl-11 pr-12 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15"
             />
             <button
               type="button"
@@ -78,7 +78,7 @@ function LoginPage() {
 
         <button
           type="submit"
-          className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand text-sm font-bold text-primary-foreground shadow-brand transition hover:brightness-105 active:translate-y-px"
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-[8px] bg-gradient-brand text-sm font-bold text-primary-foreground shadow-brand transition hover:brightness-105 active:translate-y-px"
         >
           Entrar no Painel
           <ArrowRight className="size-4" aria-hidden="true" />

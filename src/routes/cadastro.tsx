@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Building2, CreditCard, Eye, EyeOff, Lock, Mail, Phone } from "lucide-react";
+import { Building2, Eye, EyeOff, Lock, Mail, Phone } from "lucide-react";
 import { AuthLayout, Divider, Field, GoogleButton } from "@/components/auth/AuthLayout";
 import { BusinessTypeStep } from "@/components/auth/BusinessTypeStep";
 
@@ -58,16 +58,13 @@ function SignupPage() {
           autoComplete="organization"
         />
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <Field id="doc" label="CPF / CNPJ" icon={CreditCard} placeholder="000.000.000-00" />
-          <Field
-            id="telefone"
-            label="Telefone (WhatsApp)"
-            icon={Phone}
-            placeholder="(11) 99999-9999"
-            autoComplete="tel"
-          />
-        </div>
+        <Field
+          id="telefone"
+          label="Telefone (WhatsApp)"
+          icon={Phone}
+          placeholder="(11) 99999-9999"
+          autoComplete="tel"
+        />
 
         <Field
           id="email"
@@ -106,7 +103,7 @@ function SignupPage() {
                   type={f.visible ? "text" : "password"}
                   placeholder={f.placeholder}
                   autoComplete="new-password"
-                  className="h-12 w-full rounded-xl border border-border bg-card pl-11 pr-12 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15"
+                  className="h-12 w-full rounded-[8px] border border-border bg-background/55 pl-11 pr-12 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15"
                 />
                 <button
                   type="button"
@@ -137,7 +134,7 @@ function SignupPage() {
 
         <button
           type="submit"
-          className="h-12 w-full rounded-xl bg-gradient-brand text-sm font-bold text-primary-foreground shadow-brand transition hover:brightness-105 active:translate-y-px"
+          className="h-12 w-full rounded-[8px] bg-gradient-brand text-sm font-bold text-primary-foreground shadow-brand transition hover:brightness-105 active:translate-y-px"
         >
           Criar minha conta
         </button>

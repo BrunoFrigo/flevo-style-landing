@@ -1,63 +1,57 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Layers, Zap, Percent } from "lucide-react";
+import { Activity, Bot, Check, ShieldCheck, Zap } from "lucide-react";
 import { Logo } from "@/components/landing/Logo";
 
 export function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
-      {/* Ambient light */}
-      <div
-        className="pointer-events-none absolute inset-0 bloom opacity-60"
-        aria-hidden="true"
-      />
+    <main className="veriox-dark cyber-grid relative min-h-screen overflow-hidden bg-background">
+      <div className="pointer-events-none absolute inset-0 bloom opacity-70" aria-hidden="true" />
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-12 px-6 py-10 lg:grid-cols-2 lg:px-10">
-        {/* Left: brand story */}
-        <div className="relative">
-          <Link to="/" className="mb-16 block w-fit lg:mb-24">
+      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-10 px-6 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
+        <div className="relative py-4 lg:py-10">
+          <Link to="/" className="mb-12 block w-fit lg:mb-24">
             <Logo />
           </Link>
 
-          <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-bold text-accent-foreground">
-            <Layers className="size-3.5" aria-hidden="true" />
-            Soluções que impulsionam seu negócio
+          <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-card/60 px-4 py-2 text-xs font-semibold text-foreground backdrop-blur-xl">
+            <span className="status-pulse size-2 rounded-full bg-primary" aria-hidden="true" />
+            Automação inteligente para Telegram
           </span>
 
-          <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl">
-            Sua operação
+          <h1 className="mt-7 max-w-xl text-4xl font-extrabold leading-[1.05] tracking-normal text-foreground sm:text-6xl">
+            Sua operação vende.
             <br />
-            <span className="text-gradient-brand">começa aqui.</span>
+            <span className="text-gradient-brand">A VerioxPay escala.</span>
           </h1>
 
-          <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-            Acompanhe suas vendas, gerencie pagamentos e impulsione seus resultados com a
-            VerioxPay.
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
+            Centralize pagamentos, automações e métricas do seu negócio digital em uma
+            experiência rápida e segura.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-8">
+          <div className="mt-10 grid max-w-lg gap-3 sm:grid-cols-2">
             {[
-              { icon: Zap, title: "Saque", sub: "Instantâneo" },
-              { icon: Percent, title: "Taxas", sub: "Justas" },
-            ].map(({ icon: Icon, title, sub }) => (
-              <div key={title} className="flex items-center gap-3">
-                <span className="grid size-10 place-items-center rounded-xl bg-accent text-primary">
-                  <Icon className="size-5" aria-hidden="true" />
+              { icon: Bot, label: "Bots sempre ativos" },
+              { icon: Activity, label: "Dados em tempo real" },
+              { icon: Zap, label: "Checkout otimizado" },
+              { icon: ShieldCheck, label: "Operação protegida" },
+            ].map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-3 border-t border-hairline py-3">
+                <span className="grid size-8 place-items-center rounded-[8px] bg-accent text-primary">
+                  <Icon className="size-4" aria-hidden="true" />
                 </span>
-                <span className="text-sm font-bold leading-tight text-foreground">
-                  {title}
-                  <br />
-                  {sub}
-                </span>
+                <span className="text-sm font-semibold text-foreground">{label}</span>
+                <Check className="ml-auto size-4 text-primary" aria-hidden="true" />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right: card */}
-        <div className="w-full">
-          <div className="mx-auto w-full max-w-md rounded-3xl border border-hairline bg-card p-8 shadow-elevated sm:p-10">
+        <div className="w-full py-4">
+          <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[8px] border border-hairline bg-card/85 p-7 shadow-elevated backdrop-blur-2xl sm:p-10">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-brand" aria-hidden="true" />
             {children}
           </div>
         </div>
@@ -70,7 +64,7 @@ export function GoogleButton({ label }: { label: string }) {
   return (
     <button
       type="button"
-      className="flex h-12 w-full items-center justify-center gap-3 rounded-xl border border-border bg-card text-sm font-semibold text-foreground transition hover:bg-muted"
+      className="flex h-12 w-full items-center justify-center gap-3 rounded-[8px] border border-border bg-muted/40 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:bg-muted"
     >
       <svg viewBox="0 0 24 24" className="size-5" aria-hidden="true">
         <path
@@ -124,7 +118,7 @@ export function Field({
         <Icon className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-primary" />
         <input
           id={id}
-          className="h-12 w-full rounded-xl border border-border bg-card pl-11 pr-4 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15"
+          className="h-12 w-full rounded-[8px] border border-border bg-background/55 pl-11 pr-4 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-4 focus:ring-primary/15"
           {...props}
         />
       </div>
