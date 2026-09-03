@@ -1,107 +1,71 @@
-import { ArrowUpRight, Check, CircleDollarSign, RefreshCw, Send } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import phones from "@/assets/raven-phones.png";
 import logoAsset from "@/assets/veriox-logo.jpg.asset.json";
 
-type NotificationKind = "success" | "sync" | "sent" | "sale";
-
 const NOTIFICATIONS: Array<{
-  app: string;
-  message: string;
-  detail?: string;
-  kind: NotificationKind;
+  amount: string;
   className: string;
   delay: string;
 }> = [
   {
-    app: "Automação",
-    message: "Executada com sucesso",
-    kind: "success",
+    amount: "R$ 29,90",
     className: "left-0 top-[28%] hidden md:flex",
     delay: "0s",
   },
   {
-    app: "Sequência",
-    message: "Mensagens enviadas",
-    kind: "sync",
+    amount: "R$ 49,90",
     className: "left-[-2%] top-[46%] hidden md:flex",
     delay: "1.2s",
   },
   {
-    app: "Campanha",
-    message: "Entregue para 1.247 usuários",
-    kind: "sent",
+    amount: "R$ 97,00",
     className: "left-[8%] top-[64%] hidden lg:flex",
     delay: "2.1s",
   },
   {
-    app: "Venda realizada",
-    message: "Pagamento aprovado",
-    detail: "Comissão: R$ 136,87",
-    kind: "sale",
+    amount: "R$ 136,87",
     className: "right-0 top-[30%] hidden md:flex",
     delay: "0.6s",
   },
   {
-    app: "Automação",
-    message: "Executada com sucesso",
-    kind: "success",
+    amount: "R$ 67,90",
     className: "right-[-1%] top-[52%] hidden lg:flex",
     delay: "1.7s",
   },
 ];
 
-const NOTIFICATION_ICONS = {
-  success: Check,
-  sync: RefreshCw,
-  sent: Send,
-  sale: CircleDollarSign,
-};
-
 function NotifCard({
-  app,
-  message,
-  detail,
-  kind,
+  amount,
   className,
   delay,
 }: {
-  app: string;
-  message: string;
-  detail?: string;
-  kind: NotificationKind;
+  amount: string;
   className: string;
   delay: string;
 }) {
-  const StatusIcon = NOTIFICATION_ICONS[kind];
-
   return (
     <div
       style={{ animationDelay: delay }}
-      className={`drift-y absolute z-20 w-[18.5rem] ${className}`}
+      className={`drift-y absolute z-20 w-[20.5rem] ${className}`}
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-4 -bottom-2 -z-10 h-12 scale-[0.98] rounded-[24px] border border-foreground/5 bg-card/40 opacity-60 backdrop-blur-md"
-      />
-      <div className="flex items-start gap-3 rounded-[28px] border border-foreground/10 bg-card/80 p-3.5 shadow-elevated backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
+      <div className="flex min-h-[6.8rem] items-start gap-3.5 rounded-[24px] border border-foreground/25 bg-card/70 px-4 py-3.5 shadow-elevated backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
         <img
           src={logoAsset.url}
           alt=""
-          className="size-11 shrink-0 rounded-[10px] object-cover shadow-soft"
+          className="mt-0.5 size-12 shrink-0 rounded-[12px] object-cover shadow-soft"
         />
-        <div className="min-w-0 flex-1 pt-0.5">
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex min-w-0 items-center gap-1.5">
-              <span className="flex size-4 shrink-0 items-center justify-center rounded-[4px] bg-success text-primary-foreground">
-                <StatusIcon className="size-2.5" strokeWidth={3} aria-hidden="true" />
-              </span>
-              <p className="truncate text-[13px] font-semibold leading-tight text-foreground">{app}</p>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0 text-left text-[15px] font-bold leading-[1.18] text-foreground">
+              <p>⚡ Nova venda!</p>
+              <p>via VerioxPay</p>
             </div>
-            <span className="shrink-0 text-[10px] font-medium text-muted-foreground">agora</span>
+            <span className="shrink-0 pt-0.5 text-[12px] font-medium text-muted-foreground">agora</span>
           </div>
-          <p className="mt-1 text-[13px] font-medium leading-tight text-foreground/85">{message}</p>
-          {detail && <p className="mt-1 text-[11px] leading-tight text-primary">{detail}</p>}
+          <p className="mt-1 text-left text-[15px] font-medium leading-tight text-foreground/90">
+            Você recebeu {amount}
+          </p>
         </div>
       </div>
     </div>
@@ -148,7 +112,7 @@ export function Hero() {
             className="float-slow relative z-10 mx-auto w-[min(112%,940px)] max-w-none"
           />
           {NOTIFICATIONS.map((n, index) => (
-            <NotifCard key={`${n.app}-${index}`} {...n} />
+            <NotifCard key={`${n.amount}-${index}`} {...n} />
           ))}
         </div>
       </div>
