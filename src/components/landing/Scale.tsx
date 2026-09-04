@@ -5,7 +5,7 @@ const POINTS = [
   "Start mais rápido do mercado",
   "Alto volume de mensagens",
   "Múltiplos bots por conta",
-  "Operações nacionais e globais",
+  "API completa e documentada",
   "Alto volume de vendas",
   "Traqueamento avançado",
   "Infraestrutura preparada para crescimento",
