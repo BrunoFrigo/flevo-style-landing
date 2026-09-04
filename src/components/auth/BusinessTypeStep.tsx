@@ -47,13 +47,17 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
         <div className="max-w-3xl">
           <div className="mb-6 flex items-center gap-3 text-primary-glow">
             <span className="h-px w-10 bg-primary-glow/70" />
-            <span className="eyebrow">Passo 01 / 02</span>
+            <span className="eyebrow">Passo 02 / 02 — Último passo</span>
+          </div>
+          <div className="mb-8 flex items-center gap-2" aria-hidden="true">
+            <span className="h-1.5 w-16 rounded-full bg-gradient-brand shadow-brand" />
+            <span className="h-1.5 w-16 rounded-full bg-gradient-brand shadow-brand" />
           </div>
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
             O que você <span className="text-gradient-brand">vende?</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
-            Isso ajusta seu painel para o que você precisa. Você pode trocar depois nas configurações.
+            Última etapa: isso ajusta seu painel para o que você precisa. Você pode trocar depois nas configurações.
           </p>
         </div>
 
