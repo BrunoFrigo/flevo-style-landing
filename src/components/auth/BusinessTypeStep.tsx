@@ -65,16 +65,15 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
           {options.map(({ id, icon: Icon, eyebrow, title, description, items }) => {
             const isSelected = selected === id;
             return (
-              <Button
+              <button
                 key={id}
                 type="button"
-                variant="ghost"
                 onClick={() => setSelected(id)}
                 aria-pressed={isSelected}
                 className={`group relative flex min-h-[320px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 hover:-translate-y-1 sm:p-7 ${
                   isSelected
                     ? "border-primary bg-primary/10 shadow-brand"
-                    : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:shadow-brand"
+                    : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:bg-ink-soft hover:shadow-brand"
                 }`}
               >
                 <span className={`absolute right-5 top-5 grid size-7 place-items-center rounded-full border transition ${isSelected ? "border-primary bg-primary text-primary-foreground opacity-100" : "border-ink-foreground/10 text-ink-muted opacity-0 group-hover:opacity-100"}`}>
@@ -94,7 +93,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
                     </li>
                   ))}
                 </ul>
-              </Button>
+              </button>
             );
           })}
         </div>
