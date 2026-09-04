@@ -47,23 +47,23 @@ function NotifCard({
   return (
     <div
       style={{ animationDelay: delay }}
-      className={`drift-y absolute z-20 w-[20.5rem] ${className}`}
+      className={`drift-y absolute z-20 w-[17rem] sm:w-[18rem] ${className}`}
     >
-      <div className="flex min-h-[6.8rem] items-start gap-3.5 rounded-[24px] border border-foreground/25 bg-card/70 px-4 py-3.5 shadow-elevated backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
+      <div className="flex items-start gap-3 rounded-[20px] border border-foreground/18 bg-card/55 px-3.5 py-2.5 shadow-soft backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
         <img
           src={logoAsset.url}
           alt=""
-          className="mt-0.5 size-12 shrink-0 rounded-[12px] object-cover shadow-soft"
+          className="mt-0.5 size-10 shrink-0 rounded-[10px] object-cover shadow-soft"
         />
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
-            <div className="min-w-0 text-left text-[15px] font-bold leading-[1.18] text-foreground">
-              <p>⚡ Nova venda!</p>
-              <p>via VerioxPay</p>
+            <div className="min-w-0 text-left text-[13px] font-bold leading-[1.2] text-foreground">
+              <p>Nova venda</p>
+              <p className="text-foreground/80">via VerioxPay</p>
             </div>
-            <span className="shrink-0 pt-0.5 text-[12px] font-medium text-muted-foreground">agora</span>
+            <span className="shrink-0 pt-0.5 text-[11px] font-medium text-muted-foreground">agora</span>
           </div>
-          <p className="mt-1 text-left text-[15px] font-medium leading-tight text-foreground/90">
+          <p className="mt-0.5 text-left text-[13px] font-medium leading-tight text-foreground/90">
             Você recebeu {amount}
           </p>
         </div>
