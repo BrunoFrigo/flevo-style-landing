@@ -47,13 +47,17 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
         <div className="max-w-3xl">
           <div className="mb-6 flex items-center gap-3 text-primary-glow">
             <span className="h-px w-10 bg-primary-glow/70" />
-            <span className="eyebrow">Passo 01 / 02</span>
+            <span className="eyebrow">Passo 02 / 02 — Último passo</span>
+          </div>
+          <div className="mb-8 flex items-center gap-2" aria-hidden="true">
+            <span className="h-1.5 w-16 rounded-full bg-gradient-brand shadow-brand" />
+            <span className="h-1.5 w-16 rounded-full bg-gradient-brand shadow-brand" />
           </div>
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
             O que você <span className="text-gradient-brand">vende?</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
-            Isso ajusta seu painel para o que você precisa. Você pode trocar depois nas configurações.
+            Última etapa: isso ajusta seu painel para o que você precisa. Você pode trocar depois nas configurações.
           </p>
         </div>
 
@@ -61,16 +65,15 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
           {options.map(({ id, icon: Icon, eyebrow, title, description, items }) => {
             const isSelected = selected === id;
             return (
-              <Button
+              <button
                 key={id}
                 type="button"
-                variant="ghost"
                 onClick={() => setSelected(id)}
                 aria-pressed={isSelected}
                 className={`group relative flex min-h-[320px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 hover:-translate-y-1 sm:p-7 ${
                   isSelected
                     ? "border-primary bg-primary/10 shadow-brand"
-                    : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:shadow-brand"
+                    : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:bg-ink-soft hover:shadow-brand"
                 }`}
               >
                 <span className={`absolute right-5 top-5 grid size-7 place-items-center rounded-full border transition ${isSelected ? "border-primary bg-primary text-primary-foreground opacity-100" : "border-ink-foreground/10 text-ink-muted opacity-0 group-hover:opacity-100"}`}>
@@ -90,7 +93,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
                     </li>
                   ))}
                 </ul>
-              </Button>
+              </button>
             );
           })}
         </div>

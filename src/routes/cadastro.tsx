@@ -36,6 +36,13 @@ function SignupPage() {
 
   return (
     <AuthLayout>
+      <div className="mb-6">
+        <span className="eyebrow text-primary">Passo 01 / 02</span>
+        <div className="mt-3 flex items-center gap-2" aria-hidden="true">
+          <span className="h-1.5 w-14 rounded-full bg-gradient-brand shadow-brand" />
+          <span className="h-1.5 w-14 rounded-full bg-border" />
+        </div>
+      </div>
       <h2 className="text-3xl font-extrabold tracking-tight text-foreground">
         Criar <span className="text-primary">conta</span>
       </h2>
