@@ -1,20 +1,10 @@
-import { BarChart3, BookOpen, Globe2, Repeat, Users } from "lucide-react";
+import { BookOpen, Radio, Repeat, Rocket, Sparkles } from "lucide-react";
 
 const MARKETS = [
-  {
-    icon: BarChart3,
-    title: "Trading e Investimentos",
-    text: "Gerencie salas de sinais e operações com segurança e eficiência.",
-  },
   {
     icon: BookOpen,
     title: "Produtos Digitais e Infoprodutos",
     text: "Venda cursos, ebooks e conteúdos digitais com uma plataforma robusta.",
-  },
-  {
-    icon: Users,
-    title: "Comunidades Privadas",
-    text: "Crie e gerencie comunidades exclusivas com controle total de acesso.",
   },
   {
     icon: Repeat,
@@ -22,9 +12,19 @@ const MARKETS = [
     text: "Pagamentos recorrentes para garantir receita previsível e escalável.",
   },
   {
-    icon: Globe2,
-    title: "Projetos Nacionais e Internacionais",
-    text: "Expanda sem fronteiras com suporte a múltiplas moedas e idiomas.",
+    icon: Rocket,
+    title: "Lançamentos e Afiliações",
+    text: "Estruture ofertas com afiliados e acompanhe cada venda em tempo real.",
+  },
+  {
+    icon: Radio,
+    title: "Conteúdo e Canais Pagos",
+    text: "Monetize conteúdo e acessos pagos direto pelo Telegram, sem fricção.",
+  },
+  {
+    icon: Sparkles,
+    title: "E qualquer negócio digital",
+    text: "Se a venda acontece no Telegram, a VerioxPay recebe e libera para você.",
   },
 ];
 
@@ -43,8 +43,15 @@ export function Markets() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {MARKETS.map(({ icon: Icon, title, text }) => (
-            <article key={title} className="premium-card rounded-lg p-8">
-              <span className="grid size-12 place-items-center rounded-lg bg-accent text-primary">
+            <article
+              key={title}
+              className="premium-card group relative overflow-hidden rounded-lg p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[0_24px_60px_-24px_oklch(from_var(--primary)_l_c_h/0.35)]"
+            >
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-10 -top-10 size-32 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              />
+              <span className="grid size-12 place-items-center rounded-lg bg-accent text-primary transition-transform duration-500 group-hover:scale-110">
                 <Icon className="size-6" aria-hidden="true" />
               </span>
               <h3 className="mt-6 text-lg font-bold text-foreground">{title}</h3>
