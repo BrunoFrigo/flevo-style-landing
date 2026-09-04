@@ -49,7 +49,7 @@ function NotifCard({
       style={{ animationDelay: delay }}
       className={`drift-y absolute z-20 w-[17rem] sm:w-[18rem] ${className}`}
     >
-      <div className="flex items-start gap-3 rounded-[20px] border border-foreground/18 bg-card/55 px-3.5 py-2.5 shadow-soft backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
+      <div className="flex items-start gap-3 rounded-[20px] border border-foreground/22 bg-card/78 px-3.5 py-2.5 shadow-soft backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
         <img
           src={logoAsset.url}
           alt=""
@@ -59,11 +59,11 @@ function NotifCard({
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0 text-left text-[13px] font-bold leading-[1.2] text-foreground">
               <p>Nova venda</p>
-              <p className="text-foreground/80">via VerioxPay</p>
+              <p className="text-foreground/75">via VerioxPay</p>
             </div>
             <span className="shrink-0 pt-0.5 text-[11px] font-medium text-muted-foreground">agora</span>
           </div>
-          <p className="mt-0.5 text-left text-[13px] font-medium leading-tight text-foreground/90">
+          <p className="mt-0.5 text-left text-[13px] font-semibold leading-tight text-foreground">
             Você recebeu {amount}
           </p>
         </div>
