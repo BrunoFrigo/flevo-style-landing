@@ -71,24 +71,35 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5">
-          {options.map(({ id, icon: Icon, eyebrow, title, description, items }) => {
+          {options.map(({ id, icon: Icon, eyebrow, title, description, items, soon }) => {
             const isSelected = selected === id;
             return (
               <button
                 key={id}
                 type="button"
-                onClick={() => setSelected(id)}
+                disabled={soon}
+                onClick={() => !soon && setSelected(id)}
                 aria-pressed={isSelected}
-                className={`group relative flex min-h-[320px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 hover:-translate-y-1 sm:p-7 ${
-                  isSelected
-                    ? "border-primary bg-primary/10 shadow-brand"
-                    : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:bg-ink-soft hover:shadow-brand"
+                aria-disabled={soon}
+                className={`group relative flex min-h-[320px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 ${
+                  soon
+                    ? "cursor-not-allowed border-ink-foreground/10 bg-ink-soft opacity-70"
+                    : "hover:-translate-y-1 " + (isSelected
+                      ? "border-primary bg-primary/10 shadow-brand"
+                      : "border-ink-foreground/10 bg-ink-soft hover:border-primary/60 hover:bg-ink-soft hover:shadow-brand")
                 }`}
               >
-                <span className={`absolute right-5 top-5 grid size-7 place-items-center rounded-full border transition ${isSelected ? "border-primary bg-primary text-primary-foreground opacity-100" : "border-ink-foreground/10 text-ink-muted opacity-0 group-hover:opacity-100"}`}>
-                  {isSelected ? <Check className="size-3.5" aria-hidden="true" /> : <ArrowRight className="size-3.5" aria-hidden="true" />}
-                </span>
-                <span className="mb-8 grid size-11 place-items-center rounded-xl border border-ink-foreground/10 bg-ink-foreground/5 text-primary-glow transition group-hover:border-primary/50 group-hover:bg-primary/15">
+                {soon && (
+                  <span className="absolute right-5 top-5 rounded-full border border-primary/40 bg-primary/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-glow">
+                    Em breve
+                  </span>
+                )}
+                {!soon && (
+                  <span className={`absolute right-5 top-5 grid size-7 place-items-center rounded-full border transition ${isSelected ? "border-primary bg-primary text-primary-foreground opacity-100" : "border-ink-foreground/10 text-ink-muted opacity-0 group-hover:opacity-100"}`}>
+                    {isSelected ? <Check className="size-3.5" aria-hidden="true" /> : <ArrowRight className="size-3.5" aria-hidden="true" />}
+                  </span>
+                )}
+                <span className={`mb-8 grid size-11 place-items-center rounded-xl border border-ink-foreground/10 bg-ink-foreground/5 text-primary-glow transition ${soon ? "" : "group-hover:border-primary/50 group-hover:bg-primary/15"}`}>
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
                 <span className="eyebrow text-ink-muted">{eyebrow}</span>
