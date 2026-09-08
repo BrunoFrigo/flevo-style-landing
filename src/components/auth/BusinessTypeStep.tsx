@@ -47,15 +47,12 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
         </div>
 
         <div className="max-w-3xl">
-          <div className="mb-8 flex items-center gap-3">
-            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
-              <Check className="size-3.5 text-primary" aria-hidden="true" />
-              Etapa 2 de 2
-            </span>
-            <span className="flex items-center gap-1.5" aria-hidden="true">
-              <span className="h-1 w-8 rounded-full bg-primary/40" />
-              <span className="h-1 w-8 rounded-full bg-primary" />
-            </span>
+          <div className="mb-6">
+            <span className="eyebrow text-primary">Passo 02 / 02</span>
+            <div className="mt-3 flex items-center gap-2" aria-hidden="true">
+              <span className="h-1.5 w-14 rounded-full bg-gradient-brand shadow-brand" />
+              <span className="h-1.5 w-14 rounded-full bg-gradient-brand shadow-brand" />
+            </div>
           </div>
 
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
