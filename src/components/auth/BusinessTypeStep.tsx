@@ -47,21 +47,17 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
         </div>
 
         <div className="max-w-3xl">
-          <div className="mb-8 flex max-w-xl items-center gap-5 rounded-2xl border border-primary/35 bg-primary/10 p-4 shadow-brand sm:p-5">
-            <span className="grid size-14 shrink-0 place-items-center rounded-xl bg-gradient-brand text-xl font-extrabold text-primary-foreground shadow-brand">
-              2/2
+          <div className="mb-8 flex items-center gap-3">
+            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
+              <Check className="size-3.5 text-primary" aria-hidden="true" />
+              Etapa 2 de 2
             </span>
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-sm font-bold text-ink-foreground">Etapa final do cadastro</span>
-                <Check className="size-5 shrink-0 text-primary-glow" aria-hidden="true" />
-              </div>
-              <div className="mt-3 grid grid-cols-2 gap-2" aria-hidden="true">
-                <span className="h-2 rounded-full bg-gradient-brand shadow-brand" />
-                <span className="h-2 rounded-full bg-gradient-brand shadow-brand" />
-              </div>
-            </div>
+            <span className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="h-1 w-8 rounded-full bg-primary/40" />
+              <span className="h-1 w-8 rounded-full bg-primary" />
+            </span>
           </div>
+
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
             O que você <span className="text-gradient-brand">vende?</span>
           </h1>
