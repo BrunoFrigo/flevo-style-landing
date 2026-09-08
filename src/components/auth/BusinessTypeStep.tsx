@@ -12,6 +12,7 @@ const options: Array<{
   title: string;
   description: string;
   items: string[];
+  soon?: boolean;
 }> = [
   {
     id: "infoprodutor",
@@ -20,6 +21,7 @@ const options: Array<{
     title: "Infoprodutor",
     description: "Venda cursos, e-books, assinaturas e produtos digitais.",
     items: ["Catálogo de produtos", "Área de membros", "Sistema de afiliados", "Assinaturas e recorrência", "Relatórios de vendas"],
+    soon: true,
   },
   {
     id: "nicho-hot",
