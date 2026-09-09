@@ -11,7 +11,7 @@ async def main():
             for name,path in PAGES:
                 await pg.goto("http://localhost:8080"+path+"?v=2",wait_until="domcontentloaded")
                 await pg.wait_for_timeout(1500)
-                await pg.screenshot(path=f"/dev-server/.shots/{tag}-{name}.png")
+                await pg.screenshot(path=f"/dev-server/.shots/{tag}-{name}-v2.png")
             await ctx.close()
         await b.close()
 asyncio.run(main())
