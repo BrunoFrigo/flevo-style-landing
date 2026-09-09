@@ -8,8 +8,9 @@ export function Logo({ className = "", inverted = false }: { className?: string;
         alt="VerioxPay"
         className="size-9 rounded-[10px] object-cover shadow-brand"
       />
-      <span className={`text-xl font-extrabold tracking-tight ${inverted ? "text-ink-foreground" : "text-foreground"}`}>
-        <span className="text-primary">Veriox</span>Pay
+      <span className="text-xl font-black uppercase tracking-tight">
+        <span className="text-primary">Veriox</span>
+        <span className={inverted ? "text-ink-foreground" : "text-foreground"}>Pay</span>
       </span>
     </span>
   );
