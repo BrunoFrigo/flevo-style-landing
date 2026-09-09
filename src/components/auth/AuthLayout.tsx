@@ -9,9 +9,9 @@ export function AuthLayout({ children }: { children: ReactNode }) {
       <div className="pointer-events-none absolute inset-0 bloom opacity-70" aria-hidden="true" />
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-10 px-6 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
-        <div className="relative py-4 lg:py-10">
-          <Link to="/" className="mb-12 block w-fit lg:mb-24">
+      <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-8 px-5 py-8 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10">
+        <div className="relative order-2 py-2 lg:order-1 lg:py-10">
+          <Link to="/" className="hidden w-fit lg:mb-24 lg:block">
             <Logo />
           </Link>
 
@@ -20,7 +20,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
             Automação inteligente para Telegram
           </span>
 
-          <h1 className="mt-7 max-w-xl text-4xl font-extrabold leading-[1.05] tracking-normal text-foreground sm:text-6xl">
+          <h1 className="mt-6 max-w-xl text-[1.9rem] font-extrabold leading-[1.08] tracking-normal text-foreground sm:text-4xl lg:text-6xl">
             Sua operação vende.
             <br />
             <span className="text-gradient-brand">A VerioxPay escala.</span>
@@ -31,7 +31,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
             experiência rápida e segura.
           </p>
 
-          <div className="mt-10 grid max-w-lg gap-3 sm:grid-cols-2">
+          <div className="mt-8 grid max-w-lg gap-2 sm:grid-cols-2 sm:gap-3">
             {[
               { icon: Bot, label: "Bots sempre ativos" },
               { icon: Activity, label: "Dados em tempo real" },
@@ -49,8 +49,11 @@ export function AuthLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        <div className="w-full py-4">
-          <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[8px] border border-hairline bg-card/85 p-7 shadow-elevated backdrop-blur-2xl sm:p-10">
+        <div className="order-1 w-full py-2 lg:order-2 lg:py-4">
+          <Link to="/" className="mx-auto mb-6 block w-fit lg:hidden">
+            <Logo />
+          </Link>
+          <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[10px] border border-hairline bg-card/85 p-6 shadow-elevated backdrop-blur-2xl sm:p-8 lg:p-10">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-brand" aria-hidden="true" />
             {children}
           </div>

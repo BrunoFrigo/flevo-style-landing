@@ -10,27 +10,27 @@ const NOTIFICATIONS: Array<{
 }> = [
   {
     amount: "R$ 29,90",
-    className: "left-0 top-[28%] hidden md:flex",
+    className: "left-0 top-[28%] hidden lg:flex",
     delay: "0s",
   },
   {
     amount: "R$ 49,90",
-    className: "left-[-2%] top-[46%] hidden md:flex",
+    className: "left-[-2%] top-[46%] hidden lg:flex",
     delay: "1.2s",
   },
   {
     amount: "R$ 97,00",
-    className: "left-[8%] top-[64%] hidden lg:flex",
+    className: "left-[8%] top-[64%] hidden xl:flex",
     delay: "2.1s",
   },
   {
     amount: "R$ 136,87",
-    className: "right-0 top-[30%] hidden md:flex",
+    className: "right-0 top-[30%] hidden lg:flex",
     delay: "0.6s",
   },
   {
     amount: "R$ 67,90",
-    className: "right-[-1%] top-[52%] hidden lg:flex",
+    className: "right-[-1%] top-[52%] hidden xl:flex",
     delay: "1.7s",
   },
 ];
@@ -47,7 +47,7 @@ function NotifCard({
   return (
     <div
       style={{ animationDelay: delay }}
-      className={`drift-y absolute z-20 w-[17rem] sm:w-[18rem] ${className}`}
+      className={`drift-y absolute z-20 w-[15rem] lg:w-[16.5rem] xl:w-[18rem] ${className}`}
     >
       <div className="flex items-start gap-3 rounded-[20px] border border-foreground/22 bg-card/78 px-3.5 py-2.5 shadow-soft backdrop-blur-2xl transition-transform duration-300 hover:scale-[1.02]">
         <img
@@ -79,12 +79,12 @@ export function Hero() {
         aria-hidden="true"
         className="halo pointer-events-none absolute -top-48 left-1/2 size-[56rem] -translate-x-1/2 opacity-80"
       />
-      <div className="relative mx-auto w-full max-w-7xl px-5 pb-0 pt-16 text-center lg:px-8 lg:pt-20">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-0 pt-12 text-center sm:pt-16 lg:px-8 lg:pt-20">
         <div className="mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-[10px] font-medium uppercase text-primary backdrop-blur-xl">
           <span className="status-pulse size-2 rounded-full bg-primary" />
           Sistema de automação para Telegram
         </div>
-        <h1 className="reveal-up mx-auto max-w-4xl text-4xl font-extrabold leading-[1.05] text-foreground sm:text-5xl lg:text-7xl">
+        <h1 className="reveal-up mx-auto max-w-4xl text-[2rem] font-extrabold leading-[1.08] text-foreground sm:text-5xl lg:text-7xl">
           A nova geração de vendas<br className="hidden sm:block" /> com bots no Telegram
         </h1>
         <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -99,7 +99,7 @@ export function Hero() {
           <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
         </Link>
 
-        <div className="relative mt-16 min-h-[380px] sm:min-h-[520px] lg:min-h-[610px]">
+        <div className="relative mt-16 min-h-[260px] sm:min-h-[420px] md:min-h-[500px] lg:min-h-[610px]">
           <div
             aria-hidden="true"
             className="halo pointer-events-none absolute inset-x-1/4 bottom-0 top-1/4 opacity-60"
@@ -109,7 +109,7 @@ export function Hero() {
             alt="Bots da VerioxPay funcionando no Telegram"
             width={1280}
             height={1024}
-            className="float-slow relative z-10 mx-auto w-[min(112%,940px)] max-w-none"
+            className="float-slow relative z-10 mx-auto w-[min(118%,940px)] sm:w-[min(112%,940px)] max-w-none"
           />
           {NOTIFICATIONS.map((n, index) => (
             <NotifCard key={`${n.amount}-${index}`} {...n} />

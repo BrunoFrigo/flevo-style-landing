@@ -40,8 +40,8 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
     <main className="relative min-h-screen overflow-hidden bg-ink text-ink-foreground">
       <div className="pointer-events-none absolute inset-0 bloom opacity-80" aria-hidden="true" />
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center px-6 py-12 sm:px-10">
-        <div className="mb-12 flex items-center justify-between gap-6 sm:mb-16">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center px-5 py-10 sm:px-8 sm:py-12 lg:px-10">
+        <div className="mb-8 flex items-center justify-between gap-4 sm:mb-14">
           <Logo inverted />
           <span className="eyebrow hidden text-ink-muted sm:block">Configuração inicial</span>
         </div>
@@ -55,7 +55,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
             </div>
           </div>
 
-          <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
+          <h1 className="max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             O que você <span className="text-gradient-brand">vende?</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
@@ -74,7 +74,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
                 onClick={() => !soon && setSelected(id)}
                 aria-pressed={isSelected}
                 aria-disabled={soon}
-                className={`group relative flex min-h-[320px] w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-6 text-left transition duration-300 ${
+                className={`group relative flex w-full flex-col items-start justify-start overflow-hidden rounded-2xl border p-5 sm:min-h-[320px] sm:p-6 text-left transition duration-300 ${
                   soon
                     ? "cursor-not-allowed border-ink-foreground/10 bg-ink-soft opacity-70"
                     : "hover:-translate-y-1 " + (isSelected
@@ -92,7 +92,7 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
                     {isSelected ? <Check className="size-3.5" aria-hidden="true" /> : <ArrowRight className="size-3.5" aria-hidden="true" />}
                   </span>
                 )}
-                <span className={`mb-8 grid size-11 place-items-center rounded-xl border border-ink-foreground/10 bg-ink-foreground/5 text-primary-glow transition ${soon ? "" : "group-hover:border-primary/50 group-hover:bg-primary/15"}`}>
+                <span className={`mb-6 grid size-11 sm:mb-8 place-items-center rounded-xl border border-ink-foreground/10 bg-ink-foreground/5 text-primary-glow transition ${soon ? "" : "group-hover:border-primary/50 group-hover:bg-primary/15"}`}>
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
                 <span className="eyebrow text-ink-muted">{eyebrow}</span>
@@ -111,13 +111,13 @@ export function BusinessTypeStep({ onComplete }: { onComplete: (type: BusinessTy
           })}
         </div>
 
-        <div className="mt-8 flex items-center justify-between gap-5 border-t border-ink-foreground/10 pt-6">
+        <div className="mt-8 flex flex-col items-stretch gap-4 border-t sm:flex-row sm:items-center sm:justify-between sm:gap-5 border-ink-foreground/10 pt-6">
           <p className="text-xs text-ink-muted">Você poderá ajustar essa escolha depois.</p>
           <Button
             type="button"
             disabled={!selected}
             onClick={() => selected && onComplete(selected)}
-            className="h-11 rounded-xl bg-gradient-brand px-6 font-bold text-primary-foreground shadow-brand hover:brightness-110"
+            className="h-12 w-full justify-center rounded-xl sm:h-11 sm:w-auto bg-gradient-brand px-6 font-bold text-primary-foreground shadow-brand hover:brightness-110"
           >
             Finalizar cadastro
             <ArrowRight aria-hidden="true" />
