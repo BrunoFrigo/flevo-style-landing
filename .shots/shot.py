@@ -9,7 +9,7 @@ async def main():
             ctx=await b.new_context(viewport={"width":w,"height":h})
             pg=await ctx.new_page()
             for name,path in PAGES:
-                await pg.goto("http://localhost:8080"+path,wait_until="domcontentloaded")
+                await pg.goto("http://localhost:8080"+path+"?v=2",wait_until="domcontentloaded")
                 await pg.wait_for_timeout(1500)
                 await pg.screenshot(path=f"/dev-server/.shots/{tag}-{name}.png")
             await ctx.close()
