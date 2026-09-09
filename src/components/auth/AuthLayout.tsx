@@ -10,8 +10,8 @@ export function AuthLayout({ children }: { children: ReactNode }) {
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-7xl items-center gap-8 px-5 py-8 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10">
-        <div className="relative order-2 py-2 lg:order-1 lg:py-10">
-          <Link to="/" className="hidden w-fit lg:mb-24 lg:block">
+        <div className="relative order-2 hidden py-2 lg:order-1 lg:block lg:py-10">
+          <Link to="/" className="mb-24 hidden w-fit lg:block">
             <Logo />
           </Link>
 
@@ -49,7 +49,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        <div className="order-1 w-full py-2 lg:order-2 lg:py-4">
+        <div className="order-1 flex w-full flex-col items-center justify-center py-2 lg:order-2 lg:items-start lg:py-4">
           <Link to="/" className="mx-auto mb-6 block w-fit lg:hidden">
             <Logo />
           </Link>
